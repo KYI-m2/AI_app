@@ -41,7 +41,7 @@ with st.sidebar:
 if choose == "Home Page" :
     #st.set_page_config(layout="wide")
        
-    st.audio("audio.mp3")
+    
 
     col1, col2 = st.columns([1,3])
     with col2:
