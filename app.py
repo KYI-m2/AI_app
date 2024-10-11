@@ -59,7 +59,19 @@ if choose == "Home Page" :
     col1, col2, col3 ,col4 ,col5 = st.columns(5)
     with col2:
         st.image("Insect.jpg")
+
     with col3:
         st.image("robot.jpg",width=175)
+if choose == "About Us" :
+    st.title('About Us')
+    css = '''
+    <link href="https://fonts.googleapis.com/css2?family=Niramit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <p style="color:Black; font-size: 20px; font-family:Niramit;">แนะนำสมาชิกในกลุ่ม</p>
+    '''
+    st.markdown(css, unsafe_allow_html=True)
 
+
+    st.image("aoon.jpg",width=300, caption="ด.ญ. กานต์ปภา ประจิตร์ ม.2/3 เลขที่ 21 (หัวหน้ากลุ่ม)")
+    st.image("placeholder.jpg",width=300, caption="ด.ญ. ชนันธร มามีชัย ม.2/3 เลขที่ 23")
+    st.image("miu.jpg",width=300,caption="ด.ญ. ฐิตามร กณิกนันต์ ม.2/3 เลขที่ 24")
 
