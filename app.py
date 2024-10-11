@@ -411,4 +411,5 @@ if choose == 'Image Classification' :
     if my_image2:
         st.image(my_image2)
        
-
+   chart_data = pd.DataFrame( {'name': ['A001','A002','A003'], 'value':[10,20,30]} )
+   st.bar_chart(chart_data, x="name", y="value", stack=False)
