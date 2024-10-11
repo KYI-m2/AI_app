@@ -5,11 +5,8 @@ from  PIL import Image
 import numpy as np
 import pandas as pd
 import io 
-from keras.models import model_from_json
 from pathlib import Path
-from tensorflow.keras.preprocessing import image
 import numpy as np
-from keras.applications import vgg16
 import requests 
 import base64
 import openpyxl
