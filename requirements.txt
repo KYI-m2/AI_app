@@ -1,4 +1,7 @@
-streamlit_option_menu
-joblit
-openpyxl
+streamlit
+streamlit-option-menu
+Pillow
+pandas
+numpy
 requests
+openpyxl
