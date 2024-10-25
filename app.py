@@ -80,9 +80,10 @@ with st.sidebar:
     )
 
 if choose == "Home Page" :
+   if choose == "Home Page" :
     #st.set_page_config(layout="wide")
        
-    
+    st.audio("audio.mp3")
 
     col1, col2 = st.columns([1,3])
     with col2:
@@ -93,16 +94,15 @@ if choose == "Home Page" :
             st.image("Logo.jpg",width=100)
     st.subheader("Know Your Insect 🐜🇹🇭!")
     st.balloons()
-    st.info(("    Glad to be assisting you today,  feel free to browse our menu")
+    st.info(("KYI-Know Your Insect เป็นเว็บแอปพลิเคชันที่สร้างขึ้นด้วย Machine Learning,ภาษาไพทอน เเละ Streamlit   จัดทำขึ้นเป็นโครงงานเพื่อสร้างแหล่งข้อมูลแมลงที่มีพิษเเละเป็นอันตรายในประเทศไทยที่น่าเชื่อถือและสามารถเข้าถึงได้ง่าย เป็นโครงงานที่เกิดจากการผสมผสานของความรู้และเทคโนโลยี นำเสนอโดยนักเรียนชั้นมัธยมศึกษาปีที่2  จากโรงเรียนบดินทรเดชา(สิงห์ สิงหเสนี),จังหวัดกรุงเทพมหานคร,ประเทศไทยเว็บเเอปพลิเคชั่นนี้สามารถทำอะไรได้บ้าง?เพียงเเค่อัปโหลดภาพเเมลง หรือ ใช้การถ่ายภาพเเมลงที่สนใจลงในเว็บเเอปพลิเคชั่น   เว็บเเอปพลิเคชั่นนี้ก็จะสามารถจำเเนกเเมลงที่มีพิษเเละเป็นอันตรายที่พบได้ในประเทศไทยได้นอกจากนี้ยังมี Search bar ให้ผู้ใช้งานได้ค้นหาด้วยชื่อเเมลงอีกด้วย    This is a web-application created with ML, Python ,Streamlit, made as a project to create a reliable and access able data source of dangerous insects in Thailand, combining knowledge and technology, Brought to you by the M.2 students from Bodindecha-sing singhaseni school, based in Bangkok, Thailand What can this web application do? It can be used to classify the 36 dangerous insects found mostly in Thailand, with the method of just uploading your desired picture.")
             )
     st.toast("Lets get started 🏁 ")
     st.toast("welcome to our web-based application!📚")  
     col1, col2, col3 ,col4 ,col5 = st.columns(5)
     with col2:
         st.image("Insect.jpg")
-
     with col3:
-        st.image("robot.jpg",width=175)
+        st.image("Robot.jpg",width=175)
 if choose == "About Us" :
     st.title('About Us')
     css = '''
@@ -409,7 +409,7 @@ if choose == 'Image Classification' :
     '''
     st.markdown(css, unsafe_allow_html=True)
 
-    gender = st.selectbox("เพศ (Gender)", ["male", "female", "other"])
+    gender = st.selectbox("เพศ (Gender)", ["ผู้ชาย/male", "ผู้หญิง/female", "อื่นๆ/other"])
     date = st.text_input("วันที่ (Date) dd/mm/yyyy พุทธศักราช")
     time = st.text_input("เวลา (Time) xx:xx เวลาไทย")
     age = st.slider("อายุ (Age)", 0, 100)
@@ -456,7 +456,6 @@ if choose == 'Image Classification' :
     my_image2 = st.camera_input("Take a picture", disabled=not enable)
     if my_image2:
         st.image(my_image2)
-
      # Load the json file that contains the model's structure
     f = Path("model_structure_100.json")
     model_structure = f.read_text()
