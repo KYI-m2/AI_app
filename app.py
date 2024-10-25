@@ -102,7 +102,7 @@ if choose == "Home Page" :
     with col2:
         st.image("Insect.jpg")
     with col3:
-        st.image("Robot.jpg",width=175)
+        st.image("robot.jpg",width=175)
 if choose == "About Us" :
     st.title('About Us')
     css = '''
