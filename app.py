@@ -13,8 +13,9 @@ import openpyxl
 import requests
 import os
 import joblib
-import sklearn.ensemble import RandomForrestClassifier
-mport gdown
+import sklearn.ensemble 
+import RandomForrestClassifier
+import gdown
 
 def download_model(save_path):
     # ลิงก์ดาวน์โหลดตรงจาก Google Drive (แก้ไขให้เป็นลิงก์ดาวน์โหลด)
