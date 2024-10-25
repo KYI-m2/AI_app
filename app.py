@@ -10,8 +10,31 @@ import numpy as np
 import requests 
 import base64
 import openpyxl
+import requests
+import os
+import joblib
+import sklearn.ensemble import RandomForrestClassifier
+mport gdown
 
+def download_model(save_path):
+    # ลิงก์ดาวน์โหลดตรงจาก Google Drive (แก้ไขให้เป็นลิงก์ดาวน์โหลด)
+    url = 'https://drive.google.com/uc?export=download&id=1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw'
+    
+    # ตรวจสอบว่าไฟล์มีอยู่แล้วหรือไม่
+    if not os.path.exists(save_path):
+        with st.spinner("Downloading model..."):
+            try:
+                # ดาวน์โหลดไฟล์จาก Google Drive
+                gdown.download(url, save_path, quiet=False)
+                st.success("Model downloaded successfully.")
+            except Exception as e:
+                st.error(f"Error downloading model: {e}")
+    else:
+        st.info("Model already exists.")
 
+# ใช้ฟังก์ชันนี้โดยส่ง path ที่คุณต้องการบันทึกโมเดล
+save_path = "model.pth"
+download_model(save_path)
 
 css = '''
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
