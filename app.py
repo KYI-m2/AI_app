@@ -722,7 +722,7 @@ if choose == 'Image Classification' :
                     if predicted_name == 'ด้วงก้นกระดก':
                         st.write("แผล:")
                         st.image("A002_แมลงก้นกระดก.jpg")
-                    elif insect_name == 'ด้วงน้ำมัน':
+                    elif predicted_name == 'ด้วงน้ำมัน':
                         st.write("แผล:")
                         st.image("A001_แมลงด้วงน้ำมัน 2.jpg")
                     elif predicted_name == 'แมลงตด':
