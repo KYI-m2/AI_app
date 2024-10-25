@@ -44,7 +44,7 @@ with st.spinner("Downloading..."):
     destination = "downloaded_file"  # ชื่อไฟล์ที่ต้องการบันทึก
     download_file_from_google_drive(file_id, destination)
 
-st.success("File downloaded successfully!")
+
 
 css = '''
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
