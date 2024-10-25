@@ -10,11 +10,6 @@ import numpy as np
 import requests 
 import base64
 import openpyxl
-import requests
-import os
-import joblib
-import sklearn.ensemble 
-import RandomForrestClassifier
 import gdown
 
 def download_model(save_path):
