@@ -1,7 +1,9 @@
 streamlit
 streamlit-option-menu
+streamlit-webrtc
 Pillow
-pandas
 numpy
-requests
+pandas
+keras
+tensorflow
 openpyxl
