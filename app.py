@@ -10,7 +10,6 @@ import numpy as np
 import requests 
 import base64
 import openpyxl
-import requests
 
 def download_model(save_path):
     # ลิงก์ดาวน์โหลดตรงจาก Google Drive (แก้ไขให้เป็นลิงก์ดาวน์โหลด)
