@@ -11,6 +11,45 @@ import requests
 import base64
 import openpyxl
 
+import streamlit as st
+import requests
+
+def download_file_from_google_drive(file_id, destination):
+    base_url = "https://docs.google.com/uc?export=download"
+    session = requests.Session()
+
+    # สร้าง URL สำหรับดาวน์โหลด
+    response = session.get(base_url, params={'id': file_id}, stream=True)
+    token = get_confirm_token(response)
+
+    if token:
+        params = {'id': file_id, 'confirm': token}
+        response = session.get(base_url, params=params, stream=True)
+
+    # บันทึกไฟล์
+    with open(destination, "wb") as f:
+        for chunk in response.iter_content(32768):
+            if chunk:
+                f.write(chunk)
+
+def get_confirm_token(response):
+    for key, value in response.cookies.items():
+        if key.startswith('download_warning'):
+            return value
+    return None
+
+# ใช้ Streamlit
+st.title("Download File from Google Drive")
+
+# ใส่ File ID ที่ได้จาก URL
+file_id = "1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw"  # ID จากลิงก์ที่ให้
+destination = "downloaded_file"  # ชื่อไฟล์ที่ต้องการบันทึก
+
+if st.button("Download File"):
+    with st.spinner("Downloading..."):
+        download_file_from_google_drive(file_id, destination)
+    st.success("File downloaded successfully!")
+
 
 css = '''
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
