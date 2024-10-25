@@ -38,16 +38,12 @@ def get_confirm_token(response):
             return value
     return None
 
-# ใช้ Streamlit
-st.title("Download File from Google Drive")
-
-# ใส่ File ID ที่ได้จาก URL
-file_id = "1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw"  # ID จากลิงก์ที่ให้
-destination = "downloaded_file"  # ชื่อไฟล์ที่ต้องการบันทึก
-
 # เริ่มการดาวน์โหลดไฟล์โดยอัตโนมัติเมื่อเปิดแอป
 with st.spinner("Downloading..."):
+    file_id = "1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw"  # ID จากลิงก์ที่ให้
+    destination = "downloaded_file"  # ชื่อไฟล์ที่ต้องการบันทึก
     download_file_from_google_drive(file_id, destination)
+
 st.success("File downloaded successfully!")
 
 css = '''
