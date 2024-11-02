@@ -18,6 +18,15 @@ from streamlit_webrtc import webrtc_streamer
 import streamlit as st
 import requests
 
+#CSS skibidi
+page_bg_img = """
+<style>
+</style>
+"""
+
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
 def download_file_from_google_drive(file_id, destination):
     base_url = "https://docs.google.com/uc?export=download"
     session = requests.Session()
