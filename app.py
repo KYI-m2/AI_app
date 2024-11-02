@@ -40,7 +40,7 @@ st_lottie(
   lottie_coding,
  speed=1
 )
-
+st_lottie(lottie_hello)
 
 def download_file_from_google_drive(file_id, destination):
     base_url = "https://docs.google.com/uc?export=download"
