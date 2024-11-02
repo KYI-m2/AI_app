@@ -20,26 +20,15 @@ import requests
 import json
 from streamlit_lottie import st_lottie
 
- 
-
-def load_lottiefile(filepath:str):
-    with open(filepath, "r") as f:
-        return json.load(f)
-
 
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code !=200:
         return None
     return r.json()
-lottie_coding = load_lottiefile("lottiefiles/Animation - 1730560856537.json")
 lottie_hello = load_lottieurl("https://lottie.host/7c423378-4342-4a85-a43f-182d60239a2d/Kexj7XXBoQ.json")
 
-st.title("gay")
-st_lottie(
-  lottie_coding,
- speed=1
-)
+
 st_lottie(lottie_hello)
 
 def download_file_from_google_drive(file_id, destination):
