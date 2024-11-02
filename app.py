@@ -19,10 +19,9 @@ import streamlit as st
 import requests
 
 #CSS skibidi
-st.markdown(""")
-page_bg_img = """
+st.markdown("""
 <style>
-//*[@id="root"]/div[1]/div[1]/div/div/div/section[2](
+//*[@id="root"]/div[1]/div[1]/div/div/div/section[2]{
 backrground-color:yellow;
 )
              """
