@@ -26,8 +26,7 @@ backrground-color:yellow;
 )
              """
              unsafe_allow_html= True)
-</style>
-"""
+
 
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
