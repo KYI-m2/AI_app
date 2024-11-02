@@ -19,7 +19,7 @@ import streamlit as st
 import requests
 
 #CSS skibidi
-st.markdown("""
+st.markdown(""")
 page_bg_img = """
 <style>
 //*[@id="root"]/div[1]/div[1]/div/div/div/section[2](
