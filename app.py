@@ -30,6 +30,7 @@ def download_file_from_google_drive(file_id, destination):
         params = {'id': file_id, 'confirm': token}
         response = session.get(base_url, params=params, stream=True)
 
+    
     # บันทึกไฟล์
     with open(destination, "wb") as f:
         for chunk in response.iter_content(32768):
