@@ -35,6 +35,12 @@ def load_lottieurl(url: str):
 lottie_coding = load_lottiefile("lottiefiles/Animation - 1730560856537.json")
 lottie_hello = load_lottieurl("https://lottie.host/7c423378-4342-4a85-a43f-182d60239a2d/Kexj7XXBoQ.json")
 
+st.title("gay")
+st_lottie(
+  lottie_coding,
+ speed=1
+)
+
 
 def download_file_from_google_drive(file_id, destination):
     base_url = "https://docs.google.com/uc?export=download"
