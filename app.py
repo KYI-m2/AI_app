@@ -20,6 +20,11 @@ import requests
 import json
 from streamlit_lottie import st_lottie
 
+ 
+
+def load_lottiefile(filepath:str):
+    with open(filepath, "r") as f:
+        return json.load(f)
 
 
 def load_lottieurl(url: str):
