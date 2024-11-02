@@ -17,6 +17,8 @@ import openpyxl
 from streamlit_webrtc import webrtc_streamer
 import streamlit as st
 import requests
+
+pip install streamlit-lottie 
 import json
 from streamlit_lottie import st_lottie
 
