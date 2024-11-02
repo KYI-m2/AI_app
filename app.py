@@ -32,7 +32,7 @@ def load_lottieurl(url: str):
     if r.status_code !=200:
         return None
     return r.json()
-    
+lottie_coding = load_lottiefile("lottiefiles/Animation - 1730560856537.json")
 lottie_hello = load_lottieurl("https://lottie.host/7c423378-4342-4a85-a43f-182d60239a2d/Kexj7XXBoQ.json")
 
 
