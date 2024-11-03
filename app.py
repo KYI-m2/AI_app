@@ -401,13 +401,13 @@ if choose == "Contact Us" :
 
 
 if choose == 'Image Classification' :
-    st.title('Image Classification')
+    st.title('Image Classification,การจำเเนกเเมลงด้วยภาพ')
     predicted_name = ''
     df_1 = pd.read_excel("output.xlsx",index_col = 0)
     new_index = len(df_1)
     css = '''
     <link href="https://fonts.googleapis.com/css2?family=Niramit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <p style="color:Black; font-size: 20px; font-family:Niramit;">กรอกข้อมูลผู้ใช้</p>
+    <p style="color:Black; font-size: 20px; font-family:Niramit;">กรอกข้อมูลผู้ใช้/enter your information</p>
     '''
     st.markdown(css, unsafe_allow_html=True)
 
