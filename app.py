@@ -18,14 +18,15 @@ from streamlit_webrtc import webrtc_streamer
 import streamlit as st
 import requests
 
-page_bg_img = """
+page_bg_img = gay
 <style>
 [data-testid="stAppViewContainer"]{
 background-color: #a3cca3;
 }
 </style>
-"""
 st.markdown(page_bg_img, unsafe_allow_html=True)
+gay
+
 
 
 
