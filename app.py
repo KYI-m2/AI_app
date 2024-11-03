@@ -401,7 +401,7 @@ if choose == "Contact Us" :
 
 
 if choose == 'Image Classification' :
-    st.title('Image Classification/การจำเเนกเเมลงด้วยภาพ')
+    st.title('การจำเเนกเเมลงด้วยภาพ/Image classifycation')
     predicted_name = ''
     df_1 = pd.read_excel("output.xlsx",index_col = 0)
     new_index = len(df_1)
