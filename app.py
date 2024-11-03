@@ -17,16 +17,14 @@ import openpyxl
 from streamlit_webrtc import webrtc_streamer
 import streamlit as st
 import requests
-
-page_bg_img = gay
+page_img_bg ="""
 <style>
-[data-testid="stAppViewContainer"]{
-background-image: url(https://wallpaperaccess.com/light-green#google_vignette);
-background-size: cover;
+[data-testid="stAppViewContainer"] {
+    background-color: #fefbd8;
 }
 </style>
+"""
 st.markdown(page_bg_img, unsafe_allow_html=True)
-gay
 
 
 
