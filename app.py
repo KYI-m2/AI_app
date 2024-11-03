@@ -106,7 +106,7 @@ if choose == "Home Page" :
     with col3:
         st.image("robot.jpg",width=175)
 if choose == "About Us" :
-    st.title('About Us')
+    st.title('About Us เกี่ยวกับเรา')
     css = '''
     <link href="https://fonts.googleapis.com/css2?family=Niramit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <p style="color:Black; font-size: 20px; font-family:Niramit;">แนะนำสมาชิกในกลุ่ม</p>
@@ -415,7 +415,7 @@ if choose == 'Image Classification' :
     date = st.text_input("วันที่ (Date) dd/mm/yyyy พุทธศักราช")
     time = st.text_input("เวลา (Time) xx:xx เวลาไทย")
     age = st.slider("อายุ (Age)", 0, 100)
-    city = st.selectbox("จังหวัด (city)", ["Chiang Mai","Chiang Rai","Lampang","Lamphun", "Mae Hong Son","Nan","Phayao","Phrae","Uttaradit","Kalasin","Khon Kaen","Chaiyaphum", "Nakhon Phanom","Nakhon Ratchasima","Bueng Kan", "Buriram", "Maha Sarakham","Mukdahan", "Yasothon","Roi Et","Loei","Sakon Nakhon","Surin","Sisaket","Nong Khai","Nong Bua Lamphu","Udon Thani","Ubon Ratchathani","Amnat Charoen", "Bangkok","Kamphaeng Phet","Chai Nat","Nakhon Nayok","Nakhon Pathom","Nakhon Sawan","Nonthaburi", "Pathum Thani","Phra Nakhon Si Ayutthaya","Phichit","Phitsanulok","Phetchabun","Lopburi","Sa mut Prakan","Samut Songkhram","Samut Sakhon","Sing Buri","Sukhothai","Suphan Buri","Saraburi", "Ang Thong","Uthai Thani", "Chanthaburi","Chachoengsao","Chonburi","Trat", "Prach inburi","Rayong", "Sa Kaeo","Kanchanaburi","Tak","PrachuapKhiriKhan","Phetchaburi","Ratchaburi","Krabi", "Chumphon","Trang", "Nakhon Si Thammarat","Narathiwat","Pattani","Phang Nga","Phatthalung","Phuket","Ranong","Satun","Songkhla","Sur at Thani","Yala"])
+    city = st.selectbox("จังหวัด (city)", ["เชียงใหม่ Chiang Mai","เชียงราย Chiang Rai","ลำปาง Lampang","ลำพูน Lamphun", "เเม่ฮ่องสอน Mae Hong Son","น่าน Nan","พะเยา Phayao","Phrae","Uttaradit","Kalasin","Khon Kaen","Chaiyaphum", "Nakhon Phanom","Nakhon Ratchasima","Bueng Kan", "Buriram", "Maha Sarakham","Mukdahan", "Yasothon","Roi Et","Loei","Sakon Nakhon","Surin","Sisaket","Nong Khai","Nong Bua Lamphu","Udon Thani","Ubon Ratchathani","Amnat Charoen", "Bangkok","Kamphaeng Phet","Chai Nat","Nakhon Nayok","Nakhon Pathom","Nakhon Sawan","Nonthaburi", "Pathum Thani","Phra Nakhon Si Ayutthaya","Phichit","Phitsanulok","Phetchabun","Lopburi","Sa mut Prakan","Samut Songkhram","Samut Sakhon","Sing Buri","Sukhothai","Suphan Buri","Saraburi", "Ang Thong","Uthai Thani", "Chanthaburi","Chachoengsao","Chonburi","Trat", "Prach inburi","Rayong", "Sa Kaeo","Kanchanaburi","Tak","PrachuapKhiriKhan","Phetchaburi","Ratchaburi","Krabi", "Chumphon","Trang", "Nakhon Si Thammarat","Narathiwat","Pattani","Phang Nga","Phatthalung","Phuket","Ranong","Satun","Songkhla","Sur at Thani","Yala"])
 
     st.divider()
 
