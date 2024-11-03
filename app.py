@@ -21,7 +21,7 @@ import requests
 page_bg_img = gay
 <style>
 [data-testid="stAppViewContainer"]{
-background-color: #a3cca3;
+background-color:	#c2e922;
 }
 </style>
 st.markdown(page_bg_img, unsafe_allow_html=True)
