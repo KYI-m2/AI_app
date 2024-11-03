@@ -21,7 +21,7 @@ import requests
 page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"]{
-    background-color: #a3cca3;
+background-color: #a3cca3;
 }
 </style>
 """
