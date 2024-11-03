@@ -415,7 +415,7 @@ if choose == 'Image Classification' :
     date = st.text_input("วันที่ (Date) dd/mm/yyyy พุทธศักราช")
     time = st.text_input("เวลา (Time) xx:xx เวลาไทย")
     age = st.slider("อายุ (Age)", 0, 100)
-    city = st.selectbox("จังหวัด (city)", ["กรุงเทพมหานคร	Krung Thep Maha Nakhon (Bangkok)","กระบี่	Krabi","กาญจนบุรี Kanchanaburi","กาฬสินธุ์	Kalasin","กำแพงเพชร	Kamphaeng Phet","ขอนแก่น Khon Kaen","จันทบุรี	Chanthaburi","ฉะเชิงเทรา	Chachoengsao","ชลบุรี	Chonburi","ชัยนาท Chainat","ชัยภูมิ Chaiyaphum","ชุมพร	Chumphon","เชียงราย Chiang Rai","เชียงใหม่ Chiang Mai","ตรัง	Trang ","ตราด Trat","ตาก Tak","นครนายก	Nakhon Nayok",“นครปฐม Nakhon Pathom”,
+    city = st.selectbox("จังหวัด (city)", ["กรุงเทพมหานคร	Krung Thep Maha Nakhon (Bangkok)","กระบี่	Krabi","กาญจนบุรี Kanchanaburi","กาฬสินธุ์	Kalasin","กำแพงเพชร	Kamphaeng Phet","ขอนแก่น Khon Kaen","จันทบุรี	Chanthaburi","ฉะเชิงเทรา	Chachoengsao","ชลบุรี	Chonburi","ชัยนาท Chainat","ชัยภูมิ Chaiyaphum","ชุมพร	Chumphon","เชียงราย Chiang Rai","เชียงใหม่ Chiang Mai","ตรัง	Trang ","ตราด Trat","ตาก Tak","นครนายก	Nakhon Nayok","นครปฐม Nakhon Pathom",
 "นครพนม Nakhon Phanom",
 "นครราชสีมา Nakhon Ratchasima",
 "นครศรีธรรมราช Nakhon Si Thammarat",
