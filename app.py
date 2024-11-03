@@ -18,8 +18,8 @@ from streamlit_webrtc import webrtc_streamer
 import streamlit as st
 import requests
 
-pip install streamlit-lottie 
 import json
+import requests
 from streamlit_lottie import st_lottie
 
 
@@ -30,7 +30,7 @@ def load_lottieurl(url: str):
     return r.json()
 lottie_hello = load_lottieurl("https://lottie.host/7c423378-4342-4a85-a43f-182d60239a2d/Kexj7XXBoQ.json")
 
-
+ 
 st_lottie(lottie_hello)
 
 def download_file_from_google_drive(file_id, destination):
