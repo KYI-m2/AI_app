@@ -21,7 +21,8 @@ import requests
 page_bg_img = gay
 <style>
 [data-testid="stAppViewContainer"]{
-background-color:	#c2e922;
+background-image: url(https://wallpaperaccess.com/light-green#google_vignette);
+background-size: cover;
 }
 </style>
 st.markdown(page_bg_img, unsafe_allow_html=True)
