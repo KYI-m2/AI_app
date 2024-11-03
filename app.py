@@ -416,7 +416,7 @@ if choose == 'Image Classification' :
     date = st.text_input("วันที่ (Date) dd/mm/yyyy พุทธศักราช")
     time = st.text_input("เวลา (Time) xx:xx ")
     age = st.slider("อายุ (Age)", 0, 100)
-    city = st.selectbox("จังหวัด (city)", ["กรุงเทพมหานคร/Krung Thep Maha Nakhon (Bangkok)","กระบี่/Krabi","กาญจนบุรี/Kanchanaburi","กาฬสินธุ์/Kalasin","กำแพงเพชร/Kamphaeng Phet","ขอนแก่น/Khon Kaen","จันทบุรี/Chanthaburi","ฉะเชิงเทรา/Chachoengsao","ชลบุรี/Chonburi","ชัยนาท/Chainat","ชัยภูมิ/Chaiyaphum","ชุมพร/Chumphon","เชียงราย/Chiang Rai","เชียงใหม่/Chiang Mai","ตรัง/Trang ","ตราด/Trat","ตาก/Tak","นครนายก/Nakhon Nayok","นครปฐม/Nakhon Pathom","นครพนม/Nakhon Phanom",
+    city = st.selectbox("จังหวัด (Province)", ["กรุงเทพมหานคร/Krung Thep Maha Nakhon (Bangkok)","กระบี่/Krabi","กาญจนบุรี/Kanchanaburi","กาฬสินธุ์/Kalasin","กำแพงเพชร/Kamphaeng Phet","ขอนแก่น/Khon Kaen","จันทบุรี/Chanthaburi","ฉะเชิงเทรา/Chachoengsao","ชลบุรี/Chonburi","ชัยนาท/Chainat","ชัยภูมิ/Chaiyaphum","ชุมพร/Chumphon","เชียงราย/Chiang Rai","เชียงใหม่/Chiang Mai","ตรัง/Trang ","ตราด/Trat","ตาก/Tak","นครนายก/Nakhon Nayok","นครปฐม/Nakhon Pathom","นครพนม/Nakhon Phanom",
 "นครราชสีมา/Nakhon Ratchasima",
 "นครศรีธรรมราช/Nakhon Si Thammarat",
  "นครสวรรค์/Nakhon Sawan",
@@ -502,6 +502,19 @@ if choose == 'Image Classification' :
         st.image(my_image1)
     
     st.divider()
+    
+    if my_image1 or my_image2 :
+        if st.button('predict'):
+            my_image = my_image1 if my_image1 else my_image2
+                
+            img = image.load_img(my_image, target_size=(224, 224))
+            image_array = image.img_to_array(img)
+            images = np.expand_dims(image_array, axis=0)
+            images = vgg16.preprocess_input(images)
+
+            feature_extraction_model = vgg16.VGG16(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+            features = feature_extraction_model.predict(images)
+
 
     css = '''
     <link href="https://fonts.googleapis.com/css2?family=Niramit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
