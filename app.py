@@ -401,7 +401,7 @@ if choose == "Contact Us" :
 
 
 if choose == 'Image Classification' :
-    st.title('Image Classification              การจำเเนกเเมลงด้วยภาพ')
+    st.title('Image Classification/การจำเเนกเเมลงด้วยภาพ')
     predicted_name = ''
     df_1 = pd.read_excel("output.xlsx",index_col = 0)
     new_index = len(df_1)
@@ -412,7 +412,7 @@ if choose == 'Image Classification' :
     st.markdown(css, unsafe_allow_html=True)
 
     gender = st.selectbox("เพศ (Gender)", ["ผู้ชาย/male", "ผู้หญิง/female", "อื่นๆ/other"])
-    st.write("ตัวอย่างการกรอกข้อมูล Example of data input 20/2/2567 18:30")
+    st.write("ตัวอย่างการกรอกข้อมูล/Example of data input 20/2/2567 18:30")
     date = st.text_input("วันที่ (Date) dd/mm/yyyy พุทธศักราช")
     time = st.text_input("เวลา (Time) xx:xx ")
     age = st.slider("อายุ (Age)", 0, 100)
@@ -480,7 +480,7 @@ if choose == 'Image Classification' :
 
     css = '''
     <link href="https://fonts.googleapis.com/css2?family=Niramit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <p style="color:Black; font-size: 20px; font-family:Niramit;">เลือกวิธีการทำนายภาพเเมลง</p>
+    <p style="color:Black; font-size: 20px; font-family:Niramit;">เลือกวิธีการทำนายภาพเเมลง/Choose your classifycation method</p>
     '''
     st.markdown(css, unsafe_allow_html=True)
 
@@ -497,7 +497,7 @@ if choose == 'Image Classification' :
  
  
     
-    my_image1 = st.file_uploader("Upload a picture")
+    my_image1 = st.file_uploader("อัปโหลดรูปภาพ/Upload a picture")
     if my_image1:
         st.image(my_image1)
     
@@ -509,11 +509,11 @@ if choose == 'Image Classification' :
     '''
     st.markdown(css, unsafe_allow_html=True)
 
-    enable = st.checkbox("เปิดใช้งานกล้อง")
+    enable = st.checkbox("เปิดใช้งานกล้อง/Enable camera")
     
 
 
-    my_image2 = st.camera_input("Take a picture", disabled=not enable)
+    my_image2 = st.camera_input("การถ่ายภาพ/Take a picture", disabled=not enable)
     if my_image2:
         st.image(my_image2)
      # Load the json file that contains the model's structure
