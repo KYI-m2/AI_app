@@ -401,7 +401,7 @@ if choose == "Contact Us" :
 
 
 if choose == 'Image Classification' :
-    st.title('การจำเเนกเเมลงด้วยภาพ/Image classifycation')
+    st.title('การจำเเนกเเมลงด้วยภาพ/Image Classifycation')
     predicted_name = ''
     df_1 = pd.read_excel("output.xlsx",index_col = 0)
     new_index = len(df_1)
@@ -888,7 +888,7 @@ if choose == 'Image Classification' :
                     count_1 = df_1['Insects'].value_counts().reset_index()
                     count_1.columns = ['Insects', 'Count']
                     st.bar_chart(count_1, x='Insects', y='Count')
-                    st.header("โปรดทำเเบบประเมินความพึงพอใจ(เลือกเพียง 1 ตัวเลือก)📚")
+                
         st.subheader("โปรดประเมินประโยชน์การใช้งานของเว็บเเอปพลิเคชัน📚(Please fill out this form)")
         check = st.checkbox("⭐⭐⭐⭐⭐ ดีมาก(Excellent)")
         if check:
