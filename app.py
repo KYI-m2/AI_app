@@ -101,13 +101,12 @@ if choose == "Home Page" :
         col11, col22, col33 = st.columns(3)
         with col33:
             st.image("Logo.jpg",width=100)
-    
-       def load_lottieurl(url: str):
-       r = requests.get(url)
-       if r.status_code !=200:
-            return none
-        return r.json()
-       lottie_hello = load_lottieurl("https://lottie.host/179f77f8-858c-4cfe-906b-b7e91a0d1c1d/AKENcjzeJE.json")
+        def load_lottieurl(url: str):
+           r = requests.get(url)
+           if r.status_code !=200:
+                return none
+            return r.json()
+           lottie_hello = load_lottieurl("https://lottie.host/179f77f8-858c-4cfe-906b-b7e91a0d1c1d/AKENcjzeJE.json")
        st_lottie(lottie_hello)
     st.subheader("Know Your Insect 🐜🇹🇭!")
     st.balloons()
