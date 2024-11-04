@@ -8,4 +8,3 @@ keras
 tensorflow
 openpyxl
 streamlit-lottie
-json
