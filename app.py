@@ -17,6 +17,15 @@ import openpyxl
 from streamlit_webrtc import webrtc_streamer
 import streamlit as st
 import requests
+import json
+import requests
+from streamlit_lottie import st_lottie
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code !=200:
+        return none
+    return r.json()
+lottie_hello = load_lottieurl("https://lottie.host/7c423378-4342-4a85-a43f-182d60239a2d/kexj7xxBoO.json")
 page_img_bg ="""
 <style>
 [data-testid="stAppViewContainer"] {
