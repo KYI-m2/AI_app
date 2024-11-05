@@ -31,6 +31,16 @@ opacity: 0.8;
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
+side_bg_img= """
+<style>
+[data-testid="stSidebar"] {
+background-color: #b3ffb3;
+opacity: 0.8;
+}
+</style>
+"""
+st.markdown(side_bg_img, unsafe_allow_html=True)
+
 
 
 
