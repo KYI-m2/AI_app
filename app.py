@@ -21,6 +21,17 @@ import json
 import requests
 from streamlit_lottie import st_lottie
 
+page_bg_img= """
+<style>
+[data-testid="stAppViewContainer"] {
+background-color: #66ff99:
+opacity: 0.8;
+}
+</style>
+"""
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
 
 
 
