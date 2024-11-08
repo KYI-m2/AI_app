@@ -9,4 +9,4 @@ tensorflow
 openpyxl
 streamlit-lottie
 css
-Javascript
+javascript
