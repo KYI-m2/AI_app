@@ -22,7 +22,7 @@ import requests
 from streamlit_lottie import st_lottie
 
 
-add_logo("C:\Users\Sasithorn Mameechai\Downloads\Logo.jpg"
+add_logo("Logo.jpg"
 )
 
 page_bg_img= """
