@@ -22,8 +22,8 @@ import requests
 from streamlit_lottie import st_lottie
 
 
-add_logo("https://github.com/KYI-m2/AI_app/blob/main/Logo.jpg?raw=true"
-)
+add_logo("https://github.com/KYI-m2/AI_app/blob/main/Logo.jpg?raw=true
+")
 
 page_bg_img= """
 <style>
