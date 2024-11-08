@@ -21,6 +21,9 @@ import json
 import requests
 from streamlit_lottie import st_lottie
 
+
+add_logo(Logo.jpg)
+
 page_bg_img= """
 <style>
 [data-testid="stAppViewContainer"] {
