@@ -25,7 +25,7 @@ from streamlit_lottie import st_lottie
 #Extra button cuztomization
 <script>
  const streamlitDoc = window.parent.document;
- buttons = Array.from(streamlitDoc.querySelectorAll(".stButton > button:));
+ buttons = Array.from(streamlitDoc.querySelectorAll(".stButton > button":));
  console.log(buttons);
  button_style.backgroundColor = "coral"
 </script>
