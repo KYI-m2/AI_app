@@ -22,7 +22,8 @@ import requests
 from streamlit_lottie import st_lottie
 
 
-add_logo(Logo.jpg)
+add_logo("https://raw.githubusercontetnt.com/<Logo>.jpg"
+)
 
 page_bg_img= """
 <style>
