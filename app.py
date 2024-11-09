@@ -22,12 +22,13 @@ import requests
 from streamlit_lottie import st_lottie
 styleable_container(
         key ="Predict_button",
-        css_styles="""
+        css_styles=["""
             button {
                 background-color: green;
                 }
                 """
-            ):
+        ]            
+        ):
 
 
 page_bg_img= """
