@@ -10,3 +10,4 @@ openpyxl
 streamlit-lottie
 css
 javascript
+streamlit-extras
