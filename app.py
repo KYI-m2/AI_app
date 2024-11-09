@@ -145,8 +145,8 @@ if choose == "Home Page" :
     st_lottie(lottie_hello)
         
 if choose == "About Us" :
-     col1, col2, col3, col4, col5 = st.columns(5)
-     with col2:
+    col1, col2, col3, col4, col5 = st.columns(5)
+    with col2:
         st.title('About Us เกี่ยวกับเรา')
         css = '''
         <link href="https://fonts.googleapis.com/css2?family=Niramit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
