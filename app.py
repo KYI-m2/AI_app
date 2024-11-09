@@ -135,7 +135,15 @@ if choose == "Home Page" :
     with col2:
         st.image("Insect.jpg")
     with col3:
-        st.image("robot.jpg",width=175)
+      def load_lottieurl(url: str):
+          r = requests.get(url)
+          if r.status_code !=200: 
+              return None 
+          return r.json() 
+      lottie_hello = load_lottieurl("https://lottie.host/7c423378-4342-4a85-a43f-182d60239a2d/Kexj7XXBoQ.json")
+
+    st_lottie(lottie_hello)
+        
 if choose == "About Us" :
     st.title('About Us เกี่ยวกับเรา')
     css = '''
