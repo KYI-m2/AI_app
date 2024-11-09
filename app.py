@@ -113,9 +113,6 @@ with st.sidebar:
 if choose == "Home Page" :
    if choose == "Home Page" :
     #st.set_page_config(layout="wide")
-       
-  
-
     col1, col2 = st.columns([1,3])
     with col2:
         st.title("Welcome to KYI 🎉!")
@@ -151,9 +148,6 @@ if choose == "About Us" :
  <p style="color:Black; font-size: 20px; font-family:Niramit;">แนะนำสมาชิกในกลุ่ม</p>
  '''
  st.markdown(css, unsafe_allow_html=True)
-
- col1, col2, col3, col4, col5 = st.columns(5)
-with col2:
     st.image("aoon.jpg",width=300, caption="ด.ญ. กานต์ปภา ประจิตร์ ม.2/3 เลขที่ 21 (หัวหน้ากลุ่ม)")
     st.image("peem.jpg",width=300, caption="ด.ญ. ชนันธร มามีชัย ม.2/3 เลขที่ 23")
     st.image("miu.jpg",width=300,caption="ด.ญ. ฐิตามร กณิกนันต์ ม.2/3 เลขที่ 24")
