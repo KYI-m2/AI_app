@@ -20,6 +20,7 @@ import requests
 import json
 import requests
 from streamlit_lottie import st_lottie
+from streamlit import st_extras
 styleable_container(
         key ="Predict_button",
         css_styles=["""
