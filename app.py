@@ -153,7 +153,7 @@ if choose == "About Us" :
     st.markdown(css, unsafe_allow_html=True)
 
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col3:
+    with col2:
         st.image("aoon.jpg",width=300, caption="ด.ญ. กานต์ปภา ประจิตร์ ม.2/3 เลขที่ 21 (หัวหน้ากลุ่ม)")
         st.image("peem.jpg",width=300, caption="ด.ญ. ชนันธร มามีชัย ม.2/3 เลขที่ 23")
         st.image("miu.jpg",width=300,caption="ด.ญ. ฐิตามร กณิกนันต์ ม.2/3 เลขที่ 24")
