@@ -434,8 +434,13 @@ if choose == "Contact Us" :
              return None 
          return r.json() 
     lottie_hello = load_lottieurl("https://lottie.host/7c423378-4342-4a85-a43f-182d60239a2d/Kexj7XXBoQ.json")
+    st_lottie(
+        lottie_coding,
+        speed=1,
+        height=30,
+        width=30,
+    )
     st_lottie(lottie_hello)
-    
 
 
 if choose == 'Image Classification' :
