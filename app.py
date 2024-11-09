@@ -21,7 +21,9 @@ import json
 import requests
 from streamlit_lottie import st_lottie
 
-
+.stButton > button{
+    background-color: green;
+}
 
 
 page_bg_img= """
