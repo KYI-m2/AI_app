@@ -7,7 +7,7 @@ pandas
 keras
 tensorflow
 openpyxl
-streamlit-lottie
+streamlit_lottie
 css
 javascript
 streamlit-extras
