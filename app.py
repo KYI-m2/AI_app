@@ -431,7 +431,7 @@ if choose == "Contact Us" :
     def load_lottieurl(url: str):
          r = requests.get(url)
          if r.status_code !=200: 
-             return none 
+             return None 
          return r.json() 
     lottie_hello = load_lottieurl("https://lottie.host/7c423378-4342-4a85-a43f-182d60239a2d/kexj7xxBoO.json")
     st_lottie(lottie_hello)
