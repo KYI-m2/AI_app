@@ -140,7 +140,7 @@ if choose == "Home Page" :
           if r.status_code !=200: 
               return None 
           return r.json() 
-      lottie_hello = load_lottieurl("https://lottie.host/7c423378-4342-4a85-a43f-182d60239a2d/Kexj7XXBoQ.json")
+      lottie_hello = load_lottieurl("https://lottie.host/8103cbaf-fa16-4f16-b2b4-6651a2726912/PfOOZRZgup.json")
 
     st_lottie(lottie_hello)
         
