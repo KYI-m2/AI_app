@@ -28,7 +28,7 @@ styleable_container(
                 }
                 """
         ]            
-        ):
+        )
 
 
 page_bg_img= """
