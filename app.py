@@ -20,7 +20,7 @@ import requests
 import json
 import requests
 import streamlit_lottie
-from streamlit_lottie import st_lottie
+from streamlit_lottie import st_lottie 
 
 page_bg_img= """
 <style>
