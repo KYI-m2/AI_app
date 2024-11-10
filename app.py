@@ -132,13 +132,13 @@ if choose == "Home Page" :
     with col2:
         st.image("Insect.jpg")
     with col3:
-      def load_lottieurl(url: str):
+        def load_lottieurl(url: str):
           r = requests.get(url)
           if r.status_code !=200: 
               return None 
           return r.json() 
-lottie_hello = load_lottieurl("https://lottie.host/8103cbaf-fa16-4f16-b2b4-6651a2726912/PfOOZRZgup.json")
-st_lottie(lottie_hello)
+        lottie_hello = load_lottieurl("https://lottie.host/8103cbaf-fa16-4f16-b2b4-6651a2726912/PfOOZRZgup.json")
+        st_lottie(lottie_hello)
         
 if choose == "About Us" :
  st.title('About Us เกี่ยวกับเรา')
