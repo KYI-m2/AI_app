@@ -138,18 +138,6 @@ if choose == "Home Page" :
         return r.json()
       
     lottie_hello = load_lottieurl("https://lottie.host/8103cbaf-fa16-4f16-b2b4-6651a2726912/PfOOZRZgup.json")
-    lottie_coding = load_lottiefile("Animation - 1728142386839.json")
-    st_lottie(
-    lottie_coding,
-    speed=1,
-    reverse=False,
-    loop=True,
-    quality="medium",
-    renderer="svg",
-    height=30,
-    width=30,
-    key=None,
-)
     st_lottie(lottie_hello)  
  
  
