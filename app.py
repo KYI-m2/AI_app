@@ -560,12 +560,12 @@ if choose == 'Image Classification' :
     if my_image2:
         st.image(my_image2)
      # Load the json file that contains the model's structure
-    f = Path("model_structure_100.json")
+    f = Path("model_structure_ny9.json")
     model_structure = f.read_text()
 
 
     model = model_from_json(model_structure)
-    model.load_weights("model_100.weights.h5")
+    model.load_weights("model_ny9.weights.h5")
 
     if my_image1 or my_image2 :
         if st.button('predict'):
