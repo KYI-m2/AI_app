@@ -76,7 +76,7 @@ def get_confirm_token(response):
 # เริ่มการดาวน์โหลดไฟล์โดยอัตโนมัติเมื่อเปิดแอป
 with st.spinner("Downloading..."):
     file_id = "1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw"  # ID จากลิงก์ที่ให้
-    destination = "model_100.weights.h5"  # ชื่อไฟล์ที่ต้องการบันทึก
+    destination = "model_ny9.weights.h5"  # ชื่อไฟล์ที่ต้องการบันทึก
     download_file_from_google_drive(file_id, destination)
 
 
