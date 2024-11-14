@@ -76,7 +76,7 @@ def get_confirm_token(response):
 # เริ่มการดาวน์โหลดไฟล์โดยอัตโนมัติเมื่อเปิดแอป
 with st.spinner("Downloading..."):
     file_id = "1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw"  # ID จากลิงก์ที่ให้
-    destination = "model_ny9.weights.h5"  # ชื่อไฟล์ที่ต้องการบันทึก
+    destination = "model_ny9new.weights.h5"  # ชื่อไฟล์ที่ต้องการบันทึก
     download_file_from_google_drive(file_id, destination)
 
 
@@ -560,12 +560,12 @@ if choose == 'Image Classification' :
     if my_image2:
         st.image(my_image2)
      # Load the json file that contains the model's structure
-    f = Path("model_structure_ny9.json")
+    f = Path("model_structure_ny9new.json")
     model_structure = f.read_text()
 
 
     model = model_from_json(model_structure)
-    model.load_weights("model_ny9.weights.h5")
+    model.load_weights("model_ny9new.weights.h5")
 
     if my_image1 or my_image2 :
         if st.button('predict'):
