@@ -52,7 +52,7 @@ def download_file_from_google_drive(file_id, destination):
     base_url = "https://docs.google.com/uc?export=download"
     session = requests.Session()
 
-    # สร้าง URL สำหรับดาวน์โหลด
+    # Create a URL for download
     response = session.get(base_url, params={'id': file_id}, stream=True)
     token = get_confirm_token(response)
 
@@ -60,8 +60,7 @@ def download_file_from_google_drive(file_id, destination):
         params = {'id': file_id, 'confirm': token}
         response = session.get(base_url, params=params, stream=True)
 
-    
-    # บันทึกไฟล์
+    # Save the file
     with open(destination, "wb") as f:
         for chunk in response.iter_content(32768):
             if chunk:
@@ -73,10 +72,10 @@ def get_confirm_token(response):
             return value
     return None
 
-# เริ่มการดาวน์โหลดไฟล์โดยอัตโนมัติเมื่อเปิดแอป
+# Automatically download the file when the app opens
 with st.spinner("Downloading..."):
-    file_id = "1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw"  # ID จากลิงก์ที่ให้
-    destination = "model_ny9new.weights.h5"  # ชื่อไฟล์ที่ต้องการบันทึก
+    file_id = "1vvfkI-Qeo7xu1DS7FVGFqt9qKG950HhX"  # Extracted file ID from your link
+    destination = "model_file.weights.h5"  # Desired filename
     download_file_from_google_drive(file_id, destination)
 
 
