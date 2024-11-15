@@ -49,7 +49,7 @@ st.markdown(side_bg_img, unsafe_allow_html=True)
 
 
 def download_file_from_google_drive(file_id, destination):
-    base_url = "https://docs.google.com/uc?export=download"
+    base_url = "https://drive.google.com/file/d/1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw/view?usp=sharing"
     session = requests.Session()
 
     # Create a URL for download
@@ -74,8 +74,8 @@ def get_confirm_token(response):
 
 # Automatically download the file when the app opens
 with st.spinner("Downloading..."):
-    file_id = "1vvfkI-Qeo7xu1DS7FVGFqt9qKG950HhX"  # Extracted file ID from your link
-    destination = "model_ny9new.weights.h5"  # Desired filename
+    file_id = "1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw"  # Extracted file ID from your link
+    destination = "model_100.weights.h5"  # Desired filename
     download_file_from_google_drive(file_id, destination)
 
 
@@ -559,12 +559,12 @@ if choose == 'Image Classification' :
     if my_image2:
         st.image(my_image2)
      # Load the json file that contains the model's structure
-    f = Path("model_structure_ny9new.json")
+    f = Path("model_structure_100.json")
     model_structure = f.read_text()
 
 
     model = model_from_json(model_structure)
-    model.load_weights("model_ny9new.weights.h5")
+    model.load_weights("model_100.weights.h5")
 
     if my_image1 or my_image2 :
         if st.button('predict'):
