@@ -444,11 +444,19 @@ if choose == "Contact Us" :
              return None 
          return r.json() 
     lottie_hello = load_lottieurl("https://lottie.host/7c423378-4342-4a85-a43f-182d60239a2d/Kexj7XXBoQ.json")
-
     st_lottie(lottie_hello)
 
 
 if choose == 'Image Classification' :
+    def load_lottieurl(url: str):
+        r = requests.get(url)
+        if r.status_code !=200: 
+            return None 
+        return r.json()
+      
+    lottie_hello = load_lottieurl("https://lottie.host/291ab457-690e-43ef-a83b-81e146fa7f1b/frEvKtHszs.json")
+    st_lottie(lottie_hello)  
+ 
     st.title('การจำเเนกเเมลงด้วยภาพ/Image Classifycation')
     predicted_name = ''
     df_1 = pd.read_excel("output.xlsx",index_col = 0)
