@@ -898,7 +898,7 @@ if choose == 'Image Classification' :
                     df = pd.DataFrame(data[1:], columns=data[0])  # Skip header row
                     
                     # Save DataFrame to an Excel file
-                    excel_file_path = "output_file.xlsx"  # Define your file path
+                    excel_file_path = "output.xlsx"  # Define your file path
                     df.to_excel(excel_file_path, index=False)  # Save without the index column
                 
         st.subheader("โปรดประเมินประโยชน์การใช้งานของเว็บเเอปพลิเคชัน📚(Please fill out this form)")
