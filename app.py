@@ -875,6 +875,16 @@ if choose == 'Image Classification' :
                     df_1.loc[new_index,'City'] = city
                     df_1.loc[new_index,'Insects'] = predicted_name
 
+                    def connect_to_google_sheets(sheet_url):
+                        scope = [
+                            "https://spreadsheets.google.com/feeds",
+                            "https://www.googleapis.com/auth/drive"
+                        ]
+                        credentials = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+                        client = gspread.authorize(credentials)
+                        sheet = client.open_by_url(sheet_url)
+                        return sheet
+
 
                         
                     # Google Sheets URL
