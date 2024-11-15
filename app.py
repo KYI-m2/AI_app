@@ -49,28 +49,39 @@ st.markdown(side_bg_img, unsafe_allow_html=True)
 
 
 def download_file_from_google_drive(file_id, destination):
-    base_url = "https://drive.google.com/file/d/1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw/view?usp=sharing"
+    
+def download_file_from_google_drive(file_id, destination):
+    base_url = "https://drive.google.com/uc?export=download"
     session = requests.Session()
 
-    # Create a URL for download
+    # First request to get the download confirmation token (if required)
     response = session.get(base_url, params={'id': file_id}, stream=True)
     token = get_confirm_token(response)
 
     if token:
+        # Add the confirmation token to the params for the second request
         params = {'id': file_id, 'confirm': token}
         response = session.get(base_url, params=params, stream=True)
+    else:
+        # Retry with the original response if no token is required
+        response = session.get(base_url, params={'id': file_id}, stream=True)
 
     # Save the file
-    with open(destination, "wb") as f:
-        for chunk in response.iter_content(32768):
-            if chunk:
-                f.write(chunk)
+    save_response_content(response, destination)
 
 def get_confirm_token(response):
+    """Extract the confirmation token from cookies."""
     for key, value in response.cookies.items():
         if key.startswith('download_warning'):
             return value
     return None
+
+def save_response_content(response, destination):
+    """Save the file content to the specified destination."""
+    with open(destination, "wb") as f:
+        for chunk in response.iter_content(32768):
+            if chunk:  # Filter out keep-alive chunks
+                f.write(chunk)
 
 # Automatically download the file when the app opens
 with st.spinner("Downloading..."):
