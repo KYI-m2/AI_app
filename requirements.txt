@@ -11,3 +11,4 @@ streamlit_lottie
 css
 javascript
 streamlit-extras
+gspread
