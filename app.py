@@ -875,30 +875,31 @@ if choose == 'Image Classification' :
                     df_1.loc[new_index,'City'] = city
                     df_1.loc[new_index,'Insects'] = predicted_name
 
-                    def connect_to_google_sheets(sheet_url):
+                    # Authenticate and connect to Google Sheets
+                    def connect_to_google_sheets(sheet_id):
                         scope = [
                             "https://spreadsheets.google.com/feeds",
                             "https://www.googleapis.com/auth/drive"
                         ]
-                        credentials = ServiceAccountCredentials.from_json_keyfile_name("1r_6HYv9LkDGSU9L5lnHLZJNIgYGqTYKuUr11DCIH73E", scope)
+                        credentials = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
                         client = gspread.authorize(credentials)
-                        sheet = client.open_by_url(sheet_url)
+                        sheet = client.open_by_key(sheet_id)
                         return sheet
-
-
-                        
-                    # Google Sheets URL
-                    sheet_url = "https://docs.google.com/spreadsheets/d/1r_6HYv9LkDGSU9L5lnHLZJNIgYGqTYKuUr11DCIH73E/edit?usp=sharing"
                     
-                    # Connect to Google Sheets and update data
-                    sheet = connect_to_google_sheets(sheet_url)
-                    worksheet = sheet.get_worksheet(0)  # Get the first sheet
-                    worksheet.update([df_1.columns.values.tolist()] + df_1.values.tolist())  # Update with DataFrame content
+                    # Google Sheet ID (from URL)
+                    sheet_id = "1r_6HYv9LkDGSU9L5lnHLZJNIgYGqTYKuUr11DCIH73E"
                     
-                    # Generate and display bar chart in Streamlit
-                    count_1 = df_1['Insects'].value_counts().reset_index()
-                    count_1.columns = ['Insects', 'Count']
-                    st.bar_chart(count_1.set_index('Insects'))
+                    # Connect to Google Sheets
+                    sheet = connect_to_google_sheets(sheet_id)
+                    worksheet = sheet.get_worksheet(0)  # Access the first sheet
+                    
+                    # Read data from the sheet into a DataFrame
+                    data = worksheet.get_all_values()
+                    df = pd.DataFrame(data[1:], columns=data[0])  # Skip header row
+                    
+                    # Save DataFrame to an Excel file
+                    excel_file_path = "output_file.xlsx"  # Define your file path
+                    df.to_excel(excel_file_path, index=False)  # Save without the index column
                 
         st.subheader("โปรดประเมินประโยชน์การใช้งานของเว็บเเอปพลิเคชัน📚(Please fill out this form)")
         check = st.checkbox("⭐⭐⭐⭐⭐ ดีมาก(Excellent)")
