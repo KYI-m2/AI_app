@@ -163,6 +163,13 @@ if choose == "About Us" :
     
 if choose == 'Search Bar':
     st.title('Search Bar')
+    def load_lottieurl(url: str):
+        r = requests.get(url)
+        if r.status_code !=200: 
+            return None 
+        return r.json()
+    lottie_hello = load_lottieurl("https://lottie.host/7cd0e391-66dc-42d9-9ca6-9a26aa8da25e/xn4QK6WpVX.json")
+    st_lottie(lottie_hello)  
     df = pd.read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRbJASheYsGWBGRERpBkHJ0tGyLepOue779r-kCYiz9i063jnUqCVRRq5jpkkAfRf5J1O44tT6Tc2Z7/pub?gid=587778608&single=true&output=csv")
     insect_names = df["insect_name"]
     data = [
