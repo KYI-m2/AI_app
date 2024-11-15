@@ -891,7 +891,7 @@ if choose == 'Image Classification' :
                     df_1.loc[new_index,'Insects'] = predicted_name
 
                     # Path to the downloaded Excel file
-                    excel_file_path = "output.xlsx"
+                    excel_file_path = "ae.xlsx"
                     
                     # Load the Excel file into a DataFrame
                     df = pd.read_excel(excel_file_path)
