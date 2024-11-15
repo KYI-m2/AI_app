@@ -21,6 +21,8 @@ import json
 import requests
 import streamlit_lottie
 from streamlit_lottie import st_lottie 
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 page_bg_img= """
 <style>
@@ -571,7 +573,7 @@ if choose == 'Image Classification' :
     model.load_weights("model_100.weights.h5")
 
     if my_image1 or my_image2 :
-        if st.button('predict'):
+        if st.button('Predict'):
             my_image = my_image1 if my_image1 else my_image2
                 
             img = image.load_img(my_image, target_size=(224, 224))
@@ -875,11 +877,18 @@ if choose == 'Image Classification' :
 
 
                         
-                    st.dataframe(df_1)
-                    df_1.to_excel("output.xlsx")
+                    # Google Sheets URL
+                    sheet_url = "https://docs.google.com/spreadsheets/d/1r_6HYv9LkDGSU9L5lnHLZJNIgYGqTYKuUr11DCIH73E/edit?usp=sharing"
+                    
+                    # Connect to Google Sheets and update data
+                    sheet = connect_to_google_sheets(sheet_url)
+                    worksheet = sheet.get_worksheet(0)  # Get the first sheet
+                    worksheet.update([df_1.columns.values.tolist()] + df_1.values.tolist())  # Update with DataFrame content
+                    
+                    # Generate and display bar chart in Streamlit
                     count_1 = df_1['Insects'].value_counts().reset_index()
                     count_1.columns = ['Insects', 'Count']
-                    st.bar_chart(count_1, x='Insects', y='Count')
+                    st.bar_chart(count_1.set_index('Insects'))
                 
         st.subheader("โปรดประเมินประโยชน์การใช้งานของเว็บเเอปพลิเคชัน📚(Please fill out this form)")
         check = st.checkbox("⭐⭐⭐⭐⭐ ดีมาก(Excellent)")
