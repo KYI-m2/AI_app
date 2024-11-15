@@ -42,13 +42,6 @@ opacity: 0.8;
 """
 st.markdown(side_bg_img, unsafe_allow_html=True)
 
-
-
-
-
-
-
-def download_file_from_google_drive(file_id, destination):
     
 def download_file_from_google_drive(file_id, destination):
     base_url = "https://drive.google.com/uc?export=download"
