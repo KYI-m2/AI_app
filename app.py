@@ -937,49 +937,5 @@ if choose == 'Image Classification' :
                     st.write(df['How to protect'][index])
                     st.write("แหล่งข้อมูล : " , df['แหล่งข้อมูล'][index])
 
-    st.subheader("โปรดประเมินประโยชน์การใช้งานของเว็บเเอปพลิเคชัน📚(Please fill out this form)")
-    check = st.checkbox("⭐⭐⭐⭐⭐ ดีมาก(Excellent)")
-    if check:
-        st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์มากที่สุด(This Web Application is the most useful)")
-
-    check_2 = st.checkbox("⭐⭐⭐⭐ ดี(Good)")
-    if check_2:
-        st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์มาก(This Web Application is very useful)")
-
-    check_3 = st.checkbox("⭐⭐⭐ พอใช้(Fair)")
-    if check_3:
-        st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์ปานกลาง(This Web Application is neutrally useful)")
-
-    check_4 = st.checkbox("⭐⭐ น้อย(Poor)")
-    if check_4:
-        st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์น้อย(This Web Application is less useful)")
-
-    check_5 = st.checkbox("⭐ น้อยที่สุด(Very poor)")
-    if check_5:
-        st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์น้อยที่สุด(This Web Application poorly useful)")
-
-    Feed_back = st.text_input("ข้อเสนอเเนะ(Enter your comments here)")
-
-    result = st.button("Submit")
-    if result:
-        st.balloons()
-
     
-    
-            df_1.loc[new_index,'gender'] = gender
-            df_1.loc[new_index,'date'] = date
-            df_1.loc[new_index,'Age'] = age
-            df_1.loc[new_index,'City'] = city
-            df_1.loc[new_index,'Insects'] = predicted_name
-            df_1.loc[new_index, 'Feedback'] = Feed_back
-
-
-            # Path to the downloaded Excel file
-            excel_file_path = "output.xlsx"
-            
-            # Load the Excel file into a DataFrame
-            df = pd.read_excel(excel_file_path)
-
-
-            st.subheader("ขอบคุณสำหรับความร่วมมือ(Thank you for your kind cooperation)")
  
