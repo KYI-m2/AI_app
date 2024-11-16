@@ -966,19 +966,19 @@ if choose == 'Image Classification' :
 
     
     
-                    df_1.loc[new_index,'gender'] = gender
-                    df_1.loc[new_index,'date'] = date
-                    df_1.loc[new_index,'Age'] = age
-                    df_1.loc[new_index,'City'] = city
-                    df_1.loc[new_index,'Insects'] = predicted_name
-                    df_1.loc[new_index, 'Feedback'] = Feed_back
-        
+            df_1.loc[new_index,'gender'] = gender
+            df_1.loc[new_index,'date'] = date
+            df_1.loc[new_index,'Age'] = age
+            df_1.loc[new_index,'City'] = city
+            df_1.loc[new_index,'Insects'] = predicted_name
+            df_1.loc[new_index, 'Feedback'] = Feed_back
 
-                    # Path to the downloaded Excel file
-                    excel_file_path = "output.xlsx"
-                    
-                    # Load the Excel file into a DataFrame
-                    df = pd.read_excel(excel_file_path)
+
+            # Path to the downloaded Excel file
+            excel_file_path = "output.xlsx"
+            
+            # Load the Excel file into a DataFrame
+            df = pd.read_excel(excel_file_path)
 
 
             st.subheader("ขอบคุณสำหรับความร่วมมือ(Thank you for your kind cooperation)")
