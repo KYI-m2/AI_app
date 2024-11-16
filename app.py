@@ -608,6 +608,7 @@ if choose == 'Image Classification' :
             predicted_class = np.argmax(results)
 
             predicted_name = 'None'
+            predicted_name = 'None'
             if predicted_class==0:
                 predicted_name = 'ด้วงน้ำมัน'
             elif predicted_class==1:
@@ -619,13 +620,67 @@ if choose == 'Image Classification' :
             elif predicted_class==4:
                 predicted_name = 'ผึ้งหลวง'
             elif predicted_class==5:
-                predicted_name = 'เรือด'
+                predicted_name = 'ผึ้งเลี้ยง'
             elif predicted_class==6:
-                predicted_name = 'โลน'
+                predicted_name = 'ตัวต่อหัวเสือ'
             elif predicted_class==7:
-                predicted_name = 'ยุงลายบ้าน'
+                predicted_name = 'แตน'
             elif predicted_class==8:
+                predicted_name = 'มวนเพชรฆาต'
+            elif predicted_class==9:
+                predicted_name = 'เรือด'
+            elif predicted_class==10:
+                predicted_name = 'หนอนบุ้งร่าน'
+            elif predicted_class==11:
+                predicted_name = 'แมลงสาบอเมริกัน'
+            elif predicted_class==12:
+                predicted_name = 'แมลงสาบเยอรมัน'
+            elif predicted_class==13:
+                predicted_name = 'แมลงสาบผี'
+            elif predicted_class==14:
+                predicted_name = 'โลน'
+            elif predicted_class==15:
+                predicted_name = 'มดคันไฟ'
+            elif predicted_class==16:
+                predicted_name = 'มดง่าม'
+            elif predicted_class==17:
+                predicted_name = 'มดดำ'
+            elif predicted_class==18:
+                predicted_name = 'มดตะนอย'
+            elif predicted_class==19:
+                predicted_name = 'แมลงวันบ้าน'
+            elif predicted_class==20:
+                predicted_name = 'หมาร่า'
+            elif predicted_class==21:
+                predicted_name = 'แมลงวันหัวเขียว'
+            elif predicted_class==22:
+                predicted_name = 'แมลงวันคอกสัตว์'
+            elif predicted_class==23:
+                predicted_name = 'แมลงวันตา'
+            elif predicted_class==24:
+                predicted_name = 'แมลงวันหลังลาย'
+            elif predicted_class==25:
+                predicted_name = 'แมลงวันเซ็ทซี'
+            elif predicted_class==26:
+                predicted_name = 'ยุงก้นปล่อง'
+            elif predicted_class==27:
+                predicted_name = 'ยุงรำคาญ'
+            elif predicted_class==28:
+                predicted_name = 'ยุงลายบ้าน'
+            elif predicted_class==29:
+                predicted_name = 'ยุงลายสวน'
+            elif predicted_class==30:
+                predicted_name = 'ยุงลายเสือ'
+            elif predicted_class==31:
+                predicted_name = 'ริ้นดำ หรือตัวคุ่น'
+            elif predicted_class==32:
+                predicted_name = 'ริ้นน้ำเค็ม'
+            elif predicted_class==33:
                 predicted_name = 'ริ้นฝอยทราย'
+            elif predicted_class==34:
+                predicted_name = 'หมัด'
+            else :
+                predicted_name = 'เหา'
             result_text ='This is '+ predicted_name +' with confidence: ' + str(results[0][np.argmax(results)]*100)
             st.success(result_text)
 
