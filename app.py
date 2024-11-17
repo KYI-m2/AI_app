@@ -937,19 +937,60 @@ if choose == 'Image Classification' :
                     st.write(df['How to protect'][index])
                     st.write("แหล่งข้อมูล : " , df['แหล่งข้อมูล'][index])
 
-            df_1.loc[new_index,'gender'] = gender
-            df_1.loc[new_index,'date'] = date
-            df_1.loc[new_index,'Age'] = age
-            df_1.loc[new_index,'City'] = city
-            df_1.loc[new_index,'Insects'] = predicted_name
-            df_1.loc[new_index, 'Feedback'] = Feed_back
 
 
-            # Path to the downloaded Excel file
-            excel_file_path = "output.xlsx"
+            st.subheader("โปรดประเมินประโยชน์การใช้งานของเว็บเเอปพลิเคชัน📚(Please fill out this form)")
+            check = st.checkbox("⭐⭐⭐⭐⭐ ดีมาก(Excellent)")
+            if check:
+                st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์มากที่สุด(This Web Application is the most useful)")
+        
+            check_2 = st.checkbox("⭐⭐⭐⭐ ดี(Good)")
+            if check_2:
+                st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์มาก(This Web Application is very useful)")
+        
+            check_3 = st.checkbox("⭐⭐⭐ พอใช้(Fair)")
+            if check_3:
+                st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์ปานกลาง(This Web Application is neutrally useful)")
+        
+            check_4 = st.checkbox("⭐⭐ น้อย(Poor)")
+            if check_4:
+                st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์น้อย(This Web Application is less useful)")
+        
+            check_5 = st.checkbox("⭐ น้อยที่สุด(Very poor)")
+            if check_5:
+                st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์น้อยที่สุด(This Web Application poorly useful)")
+        
+            Feed_back = st.text_input("ข้อเสนอเเนะ(Enter your comments here)")
+        
+            import gspread
+            from google.oauth2.service_account import Credentials
             
-            # Load the Excel file into a DataFrame
-            df = pd.read_excel(excel_file_path)
+            # ตั้งค่าการเชื่อมต่อ Google Sheets
+            SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+            SERVICE_ACCOUNT_FILE = 'path/to/your-json-key.json'  # ใส่ path ไฟล์ JSON
+            creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+            client = gspread.authorize(creds)
+            
+            # เปิด Google Sheet
+            spreadsheet = client.open("MyWebsiteData")  # ใส่ชื่อไฟล์ Google Sheet
+            sheet = spreadsheet.sheet1  # ใช้ Sheet แรก
+            
+            # ส่วน UI ด้วย Streamlit
+            st.title("กรอกข้อมูลเพื่อบันทึกลง Google Sheets")
+            
+            with st.form("data_form"):
+                name = st.text_input("ชื่อ")
+                email = st.text_input("อีเมล")
+                phone = st.text_input("เบอร์โทรศัพท์")
+                submitted = st.form_submit_button("ส่งข้อมูล")
+            
+                if submitted:
+                    # เพิ่มข้อมูลลงใน Google Sheets
+                    try:
+                        sheet.append_row([name, email, phone])
+                        st.success("บันทึกข้อมูลสำเร็จ!")
+                    except Exception as e:
+                        st.error(f"เกิดข้อผิดพลาด: {e}")
 
 
  
