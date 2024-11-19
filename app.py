@@ -743,48 +743,24 @@ if choose == 'Image Classification' :
         
             Feed_back = st.text_input("ข้อเสนอเเนะ(Enter your comments here)")
         
-def connect_to_gsheet(creds_json, spreadsheet_name, sheet_name):
-    scope = ["https://spreadsheets.google.com/feeds",
-            'https://www.googleapis.com/auth/spreadsheets'
-            "https://www.googleapis.com/auth/drive.file",
-            "https://www.googleapis.com/auth/drive"]
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_json, scope)
-    client = gspread.authorize (credentials)
-    spreadsheet = client.open ('ผู้ใช้งาน')
-    return spreadsheet.worksheet ('ข้อมูล') # Access specific sheet by name
+# ตั้งค่า API URL ของ SheetDB
+SHEETDB_URL = "https://sheetdb.io/api/v1/9qm7a3nx8jjvs"
 
-SPREADSHEET_NAME = 'Streamlit'
-SHEET_NAME = 'Sheet1'
-CREDENTIALS_FILE = './credentials.json'
+# สร้างฟอร์มใน Streamlit
+st.title("กรอกข้อมูลเพื่อบันทึกลง Google Sheets")
 
-sheet_by_name = connect_to_gsheet (CREDENTIALS_FILE, SPREADSHEET_NAME, sheet_name=SHEET_NAME)
-st.title("Simple Data Entry using Streamlit")
+with st.form("data_form"):
+    name = st.text_input("ชื่อ")
+    email = st.text_input("อีเมล")
+    phone = st.text_input("เบอร์โทรศัพท์")
+    submitted = st.form_submit_button("ส่งข้อมูล")
 
-def read_data():
-    data = sheet_by_name.get_all_records() 
-    return pd.DataFrame(data)
-    
-def add_data(row):
-    sheet_by_name.append_row(row) 
-    
-    st.header("Enter New Data")
-    
-st.subheader("กรอกข้อมูล")
-with st.form(key="data_form"):
-    name = st.text_input("Name")
-    age = st.number_input("Age", min_value=0, max_value=120)
-    email = st.text_input("Email")
-    
-    submitted = st.form_submit_button("Submit")
-    
     if submitted:
-        if name and email: 
-            add_data([name, age, email])
-            st.success("Data added successfully!")
+        # ส่งข้อมูลไปยัง SheetDB
+        data = {"data": [{"Name": name, "Email": email, "Phone": phone}]}
+        response = requests.post(SHEETDB_URL, json=data)
+
+        if response.status_code == 201:
+            st.success("บันทึกข้อมูลสำเร็จ!")
         else:
-            st.error("Please fill out the form correctly.")
-        
-        st.header("Data Table")
-        df = read_data()
-        st.dataframe(df, width=800, height=480)
- 
+            st.error(f"เกิดข้อผิดพลาด: {response.text}")
