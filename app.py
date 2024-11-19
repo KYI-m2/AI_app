@@ -661,28 +661,7 @@ if choose == 'Image Classification' :
 
 
 
-            st.subheader("โปรดประเมินประโยชน์การใช้งานของเว็บเเอปพลิเคชัน📚(Please fill out this form)")
-            check = st.checkbox("⭐⭐⭐⭐⭐ ดีมาก(Excellent)")
-            if check:
-                st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์มากที่สุด(This Web Application is the most useful)")
-        
-            check_2 = st.checkbox("⭐⭐⭐⭐ ดี(Good)")
-            if check_2:
-                st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์มาก(This Web Application is very useful)")
-        
-            check_3 = st.checkbox("⭐⭐⭐ พอใช้(Fair)")
-            if check_3:
-                st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์ปานกลาง(This Web Application is neutrally useful)")
-        
-            check_4 = st.checkbox("⭐⭐ น้อย(Poor)")
-            if check_4:
-                st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์น้อย(This Web Application is less useful)")
-        
-            check_5 = st.checkbox("⭐ น้อยที่สุด(Very poor)")
-            if check_5:
-                st.write("การใช้งานเว็บเเอปพลิเคชันมีประโยชน์น้อยที่สุด(This Web Application poorly useful)")
-        
-            Feed_back = st.text_input("ข้อเสนอเเนะ(Enter your comments here)")
+            
         
     # ตั้งค่า API URL ของ SheetDB
     SHEETDB_URL = "https://sheetdb.io/api/v1/9qm7a3nx8jjvs"
@@ -750,7 +729,8 @@ if choose == 'Image Classification' :
      "อุทัยธานี/Uthai Thani",
      "อุบลราชธานี/Ubon Ratchathani" ])
         check = st.selectbox("Check", ["⭐⭐⭐⭐⭐ ดีมาก(Excellent)", "⭐⭐⭐⭐ ดี(Good)", "⭐⭐⭐ พอใช้(Fair)", "⭐⭐ น้อย(Poor)", "⭐ น้อยที่สุด(Very poor)"])
-        
+        Feed_back = st.text_input("ข้อเสนอเเนะ(Enter your comments here)")
+
         submitted = st.form_submit_button("ส่งข้อมูล")
         
         
