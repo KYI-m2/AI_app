@@ -45,8 +45,11 @@ opacity: 0.8;
 st.markdown(side_bg_img, unsafe_allow_html=True)
 
     
+import requests
+import streamlit as st
+
 def download_file_from_google_drive(file_id, destination):
-    base_url = "https://drive.google.com/file//uc?export=download"
+    base_url = "https://drive.google.com/uc?export=download"
     session = requests.Session()
 
     # First request to get the download confirmation token (if required)
@@ -57,9 +60,6 @@ def download_file_from_google_drive(file_id, destination):
         # Add the confirmation token to the params for the second request
         params = {'id': file_id, 'confirm': token}
         response = session.get(base_url, params=params, stream=True)
-    else:
-        # Retry with the original response if no token is required
-        response = session.get(base_url, params={'id': file_id}, stream=True)
 
     # Save the file
     save_response_content(response, destination)
@@ -82,8 +82,11 @@ def save_response_content(response, destination):
 with st.spinner("Downloading..."):
     file_id = "1vvfkI-Qeo7xu1DS7FVGFqt9qKG950HhX"  # Extracted file ID from your link
     destination = "model_ny9new.weights.h5"  # Desired filename
-    download_file_from_google_drive(file_id, destination)
-
+    try:
+        download_file_from_google_drive(file_id, destination)
+        st.success(f"File downloaded successfully: {destination}")
+    except Exception as e:
+        st.error(f"Error occurred while downloading: {e}")
 
 
 css = '''
