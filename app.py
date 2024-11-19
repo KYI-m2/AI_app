@@ -691,12 +691,6 @@ if choose == 'Image Classification' :
     st.title("กรอกข้อมูลเพื่อบันทึกลง Google Sheets")
     
     with st.form("data_form"):
-        name = st.text_input("ชื่อ")
-        email = st.text_input("อีเมล")
-        phone = st.text_input("เบอร์โทรศัพท์")
-        date = st.text_input("วันที่ (Date) dd/mm/yyyy พุทธศักราช")
-        time = st.text_input("เวลา (Time) xx:xx ")
-        age = st.slider("อายุ (Age)", 0, 100)
         city = st.selectbox("จังหวัด (Province)", ["กรุงเทพมหานคร/Krung Thep Maha Nakhon (Bangkok)","กระบี่/Krabi","กาญจนบุรี/Kanchanaburi","กาฬสินธุ์/Kalasin","กำแพงเพชร/Kamphaeng Phet","ขอนแก่น/Khon Kaen","จันทบุรี/Chanthaburi","ฉะเชิงเทรา/Chachoengsao","ชลบุรี/Chonburi","ชัยนาท/Chainat","ชัยภูมิ/Chaiyaphum","ชุมพร/Chumphon","เชียงราย/Chiang Rai","เชียงใหม่/Chiang Mai","ตรัง/Trang ","ตราด/Trat","ตาก/Tak","นครนายก/Nakhon Nayok","นครปฐม/Nakhon Pathom","นครพนม/Nakhon Phanom",
     "นครราชสีมา/Nakhon Ratchasima",
     "นครศรีธรรมราช/Nakhon Si Thammarat",
