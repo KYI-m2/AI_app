@@ -684,7 +684,7 @@ if choose == 'Image Classification' :
      "ปราจีนบุรี/Prachinburi ",                                                              
     "ปัตตานี/Pattani ",
      "พระนครศรีอยุธยา/Phra Nakhon Si Ayutthaya ",
-           "พะเยา/Phayao ",
+    "พะเยา/Phayao ",
      "พังงา/Phang Nga ",
      "พัทลุง/Phatthalung",
      "พิจิตร/Phichit ",
@@ -736,7 +736,7 @@ if choose == 'Image Classification' :
         
         if submitted:
             # ส่งข้อมูลไปยัง SheetDB
-            data = {"data": [{"City": city, "Insecct": predict_name, "Check": check, "Feedback": Feed_back }]}
+            data = {"data": [{"City": city, "Insecct": predicted_name, "Check": check, "Feedback": Feed_back }]}
             response = requests.post(SHEETDB_URL, json=data)
     
             if response.status_code == 201:
