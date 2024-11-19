@@ -779,7 +779,7 @@ with st.form(key="data_form"):
     
     if submitted:
         if name and email: 
-            add_data([name, age, email]) Append the row
+            add_data([name, age, email])
             st.success("Data added successfully!")
         else:
             st.error("Please fill out the form correctly.")
