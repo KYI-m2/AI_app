@@ -81,7 +81,7 @@ def save_response_content(response, destination):
 # Automatically download the file when the app opens
 with st.spinner("Downloading..."):
     file_id = "1Nga5BhuUjMBt88KRd3NqNxyIosQUJjSw"  # Extracted file ID from your link
-    destination = "model_100.weights.h5"  # Desired filename
+    destination = "model_ny9new.weights.h5"  # Desired filename
     download_file_from_google_drive(file_id, destination)
 
 
@@ -580,12 +580,12 @@ if choose == 'Image Classification' :
     if my_image2:
         st.image(my_image2)
      # Load the json file that contains the model's structure
-    f = Path("model_structure_100.json")
+    f = Path("model_structure_ny9new.json")
     model_structure = f.read_text()
 
 
     model = model_from_json(model_structure)
-    model.load_weights("model_100.weights.h5")
+    model.load_weights("model_ny9new.weights.h5")
 
     if my_image1 or my_image2 :
         if st.button('Predict'):
@@ -620,67 +620,13 @@ if choose == 'Image Classification' :
             elif predicted_class==4:
                 predicted_name = 'ผึ้งหลวง'
             elif predicted_class==5:
-                predicted_name = 'ผึ้งเลี้ยง'
-            elif predicted_class==6:
-                predicted_name = 'ตัวต่อหัวเสือ'
-            elif predicted_class==7:
-                predicted_name = 'แตน'
-            elif predicted_class==8:
-                predicted_name = 'มวนเพชรฆาต'
-            elif predicted_class==9:
                 predicted_name = 'เรือด'
-            elif predicted_class==10:
-                predicted_name = 'หนอนบุ้งร่าน'
-            elif predicted_class==11:
-                predicted_name = 'แมลงสาบอเมริกัน'
-            elif predicted_class==12:
-                predicted_name = 'แมลงสาบเยอรมัน'
-            elif predicted_class==13:
-                predicted_name = 'แมลงสาบผี'
-            elif predicted_class==14:
+            elif predicted_class==6:
                 predicted_name = 'โลน'
-            elif predicted_class==15:
-                predicted_name = 'มดคันไฟ'
-            elif predicted_class==16:
-                predicted_name = 'มดง่าม'
-            elif predicted_class==17:
-                predicted_name = 'มดดำ'
-            elif predicted_class==18:
-                predicted_name = 'มดตะนอย'
-            elif predicted_class==19:
-                predicted_name = 'แมลงวันบ้าน'
-            elif predicted_class==20:
-                predicted_name = 'หมาร่า'
-            elif predicted_class==21:
-                predicted_name = 'แมลงวันหัวเขียว'
-            elif predicted_class==22:
-                predicted_name = 'แมลงวันคอกสัตว์'
-            elif predicted_class==23:
-                predicted_name = 'แมลงวันตา'
-            elif predicted_class==24:
-                predicted_name = 'แมลงวันหลังลาย'
-            elif predicted_class==25:
-                predicted_name = 'แมลงวันเซ็ทซี'
-            elif predicted_class==26:
-                predicted_name = 'ยุงก้นปล่อง'
-            elif predicted_class==27:
-                predicted_name = 'ยุงรำคาญ'
-            elif predicted_class==28:
+            elif predicted_class==7:
                 predicted_name = 'ยุงลายบ้าน'
-            elif predicted_class==29:
-                predicted_name = 'ยุงลายสวน'
-            elif predicted_class==30:
-                predicted_name = 'ยุงลายเสือ'
-            elif predicted_class==31:
-                predicted_name = 'ริ้นดำ หรือตัวคุ่น'
-            elif predicted_class==32:
-                predicted_name = 'ริ้นน้ำเค็ม'
-            elif predicted_class==33:
+            elif predicted_class==8:
                 predicted_name = 'ริ้นฝอยทราย'
-            elif predicted_class==34:
-                predicted_name = 'หมัด'
-            else :
-                predicted_name = 'เหา'
             result_text ='This is '+ predicted_name +' with confidence: ' + str(results[0][np.argmax(results)]*100)
             st.success(result_text)
 
@@ -701,68 +647,14 @@ if choose == 'Image Classification' :
                         st.image("A004_006.jpg")
                     elif predicted_name == 'ผึ้งหลวง':
                         st.image("A005_019.jpg")
-                    elif predicted_name == 'ผึ้งเลี้ยง':
-                        st.image("A006_001.jpg")
-                    elif predicted_name == 'ตัวต่อหัวเสือ':
-                        st.image("A007_083.jpg")
-                    elif predicted_name == 'แตน':
-                        st.image("A008_008.jpg")
-                    elif predicted_name == 'มวนเพชรฆาต':
-                        st.image("A009_001.jpg")
                     elif predicted_name == 'เรือด':
                         st.image("A010_001.jpg")
-                    elif predicted_name == 'หนอนบุ้งร่าน':
-                        st.image("A11_080.jpg")
-                    elif predicted_name == 'แมลงสาบอเมริกัน':
-                        st.image("A012_003.jpg")
-                    elif predicted_name == 'แมลงสาบเยอรมัน':
-                        st.image("A013_001.jpg")
-                    elif predicted_name == 'แมลงสาบผี':
-                        st.image("A014_031.jpg")
                     elif predicted_name == 'โลน':
                         st.image("A015_101.jpg")
-                    elif predicted_name == 'มดคันไฟ':
-                        st.image("A016_073.jpg")
-                    elif predicted_name == 'มดง่าม':
-                        st.image("A017_084.jpg")
-                    elif predicted_name == 'มดดำ':
-                        st.image("A018_098.jpg")
-                    elif predicted_name == 'มดตะนอย':
-                        st.image("A019_085.jpg")
-                    elif predicted_name == 'แมลงวันบ้าน':
-                        st.image("A020_052.jpg")
-                    elif predicted_name == 'หมาร่า':
-                        st.image("A021_072.jpg")
-                    elif predicted_name == 'แมลงวันหัวเขียว':
-                        st.image("A022_001.jpg")
-                    elif predicted_name == 'แมลงวันคอกสัตว์':
-                        st.image("A023_001.jpg")
-                    elif predicted_name == 'แมลงวันตา':
-                        st.image("A024_070.jpg")
-                    elif predicted_name == 'แมลงวันหลังลาย':
-                        st.image("A025_001.jpg")
-                    elif predicted_name == 'แมลงวันเซ็ทซี':
-                        st.image("A026_094.jpg")
-                    elif predicted_name == 'ยุงก้นปล่อง':
-                        st.image("A027_096.jpg")
-                    elif predicted_name == 'ยุงรำคาญ':
-                        st.image("A028_001.jpg")
                     elif predicted_name == 'ยุงลายบ้าน':
                         st.image("A029_056.jpg")
-                    elif predicted_name == 'ยุงลายสวน':
-                        st.image("A030_085.jpg")
-                    elif predicted_name == 'ยุงลายเสือ':
-                        st.image("A031_055.jpg")
-                    elif predicted_name == 'ริ้นดำ หรือตัวคุ่น':
-                        st.image("A032_099.jpg")
-                    elif predicted_name == 'ริ้นน้ำเค็ม':
-                        st.image("A033_098.jpg")
                     elif predicted_name == 'ริ้นฝอยทราย':
                         st.image("A034_027.jpg")
-                    elif predicted_name == 'หมัด':
-                        st.image("A035_025.jpg")
-                    else:
-                        st.image("A036_028.jpg")
                     st.write(df['อ้างอิงตัวอย่างแมลง'][index])
                     st.header(df["insect_name"][index])
                     st.text(df['insect_sci_name'][index])
@@ -781,68 +673,14 @@ if choose == 'Image Classification' :
                         st.image("A004.jpeg")
                     elif predicted_name == 'ผึ้งหลวง':
                         st.image("A005.jpeg")
-                    elif predicted_name == 'ผึ้งเลี้ยง':
-                        st.image("A006.jpeg")
-                    elif predicted_name == 'ตัวต่อหัวเสือ':
-                        st.image("A007.jpg")
-                    elif predicted_name == 'แตน':
-                        st.image("A008.jpg")
-                    elif predicted_name == 'มวนเพชรฆาต':
-                        st.image("A009.jpeg")
                     elif predicted_name == 'เรือด':
                         st.image("A010.jpeg")
-                    elif predicted_name == 'หนอนบุ้งร่าน':
-                        st.image("A011.jpeg")
-                    elif predicted_name == 'แมลงสาบอเมริกัน':
-                        st.image("A012.jpeg")
-                    elif predicted_name == 'แมลงสาบเยอรมัน':
-                        st.image("A013.jpeg")
-                    elif predicted_name == 'แมลงสาบผี':
-                        st.image("A014.jpeg")
                     elif predicted_name == 'โลน':
                         st.image("A015.jpeg")
-                    elif predicted_name == 'มดคันไฟ':
-                        st.image("A016.jpeg")
-                    elif predicted_name == 'มดง่าม':
-                        st.image("A017.jpeg")
-                    elif predicted_name == 'มดดำ':
-                        st.image("A018.jpeg")
-                    elif predicted_name == 'มดตะนอย':
-                        st.image("A019.jpeg")
-                    elif predicted_name == 'แมลงวันบ้าน':
-                        st.image("A020.jpeg")
-                    elif predicted_name == 'หมาร่า':
-                        st.image("A021.jpeg")
-                    elif predicted_name == 'แมลงวันหัวเขียว':
-                        st.image("A022.jpg")
-                    elif predicted_name == 'แมลงวันคอกสัตว์':
-                        st.image("A023.jpg")
-                    elif predicted_name == 'แมลงวันตา':
-                        st.image("A024.jpeg")
-                    elif predicted_name == 'แมลงวันหลังลาย':
-                        st.image("A025.jpeg")
-                    elif predicted_name == 'แมลงวันเซ็ทซี':
-                        st.image("A026.jpeg")
-                    elif predicted_name == 'ยุงก้นปล่อง':
-                        st.image("A027.jpeg")
-                    elif predicted_name == 'ยุงรำคาญ':
-                        st.image("A028.jpeg")
                     elif predicted_name == 'ยุงลายบ้าน':
                         st.image("A029.jpeg")
-                    elif predicted_name == 'ยุงลายสวน':
-                        st.image("A030.jpeg")
-                    elif predicted_name == 'ยุงลายเสือ':
-                        st.image("A031.jpeg")
-                    elif predicted_name == 'ริ้นดำ หรือตัวคุ่น':
-                        st.image("A032.jpeg")
-                    elif predicted_name == 'ริ้นน้ำเค็ม':
-                        st.image("A033.jpeg")
                     elif predicted_name == 'ริ้นฝอยทราย':
                         st.image("A034.jpeg")
-                    elif predicted_name == 'หมัด':
-                        st.image("A035.jpeg")
-                    else:
-                        st.image("A036.jpg")
                     
                     st.subheader("ส่วนที่เป็นพิษ") 
                     st.write(df['poision'][index])
@@ -861,76 +699,19 @@ if choose == 'Image Classification' :
                     elif predicted_name == 'ผึ้งหลวง':
                         st.write("แผล:")
                         st.image("A005_ผึ้งหลวง.jpg")
-                    elif predicted_name == 'ผึ้งเลี้ยง':
-                        st.write("แผล:")
-                        st.image("A006_ผึ้งพันธุ์.jpg")
-                    elif predicted_name == 'ต่อหัวเสือ':
-                        st.write("แผล:")
-                        st.image("A007_ต่อหัวเสือ.jpg")
-                    elif predicted_name == 'แตนลาม':
-                        st.write("แผล:")
-                        st.image("A008_แตนลาม.jpg")
-                    elif predicted_name == 'มวนเพชฌฆาต':
-                        st.write("แผล:")
-                        st.image("A009_มวนเพชฌฆาต.jpg")
                     elif predicted_name == 'เรือด':
                         st.write("แผล:")
                         st.image("A010_เรือด.jpg")
-                    elif predicted_name == 'หนอนบุ้งร่าน':
-                        st.write("แผล:")
-                        st.image("A011_หนอนบุ้งร่าน.jpg")
                     elif predicted_name == 'โลน':
-                        st.write("แผล:")
+                        st.write("แผล:"
                         st.image("A015_โลน.jpg")
-                    elif predicted_name == 'มดคันไฟ':
-                        st.write("แผล:")
-                        st.image("A016_มดคันไฟ.jpg")
-                    elif predicted_name == 'มดง่าม':
-                        st.write("แผล:")
-                        st.image("A017_มดง่าม.jpg")
-                    elif predicted_name == 'มดดำ':
-                        st.write("แผล:")
-                        st.image("A018_มดดำ.jpg")
-                    elif predicted_name == 'มดตะนอย':
-                        st.write("แผล:")
-                        st.image("A019_มดตะนอย.jpg")
-                    elif predicted_name == 'แมลงวันบ้าน':
-                        st.write("แผล:")
-                        st.image("A020_แมลงวันบ้าน.jpg")
-                    elif predicted_name == 'แมลงวันคอกสัตว์':
-                        st.write("แผล:")
-                        st.image("A023_แมลงวันคอกสัตว์.jpg")
-                    elif predicted_name == 'แมลงวันตา':
-                        st.write("แผล:")
-                        st.image("A024_แมลงวันตา.jpg")
-                    elif predicted_name == 'ยุงรำคาญ':
-                        st.write("แผล:")
-                        st.image("A028_ยุงรำคาญ.jpg")
                     elif predicted_name == 'ยุงลายบ้าน':
                         st.write("แผล:")
                         st.image("A029_ยุงลายบ้าน.jpg")
-                    elif predicted_name == 'ยุงลายสวน':
-                        st.write("แผล:")
-                        st.image("A030_ยุงลายสวน.jpg")
-                    elif predicted_name == 'ยุงลายเสือ':
-                        st.write("แผล:")
-                        st.image("A031_ยุงลายเสือ.jpg")
-                    elif predicted_name == 'ริ้นดำ':
-                        st.write("แผล:")
-                        st.image("A032_ริ้นดำ.jpg")
-                    elif predicted_name == 'ริ้นน้ำเค็ม':
-                        st.write("แผล:")
-                        st.image("A033_ริ้นน้ำเค็ม.jpg")
                     elif predicted_name == 'ริ้นฝอยทราย':
                         st.write("แผล:")
                         st.image("A034_ริ้นฝอยทราย.jpg")
-                    elif predicted_name == 'หมัดสุนัข':
-                        st.write("แผล:")
-                        st.image("A035_หมัดสุนัข.jpg")
-                    elif predicted_name == 'เหา':
-                        st.write("แผล:")
-                        st.image("A036_เหา.jpg")
-                    else:
+                    else :
                         st.write("แผล: -")
                     st.write(df['อ้างอิง ภาพแผล'][index]) 
                     st.subheader("วิธีป้องกัน")
