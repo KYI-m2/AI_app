@@ -785,6 +785,6 @@ with st.form(key="data_form"):
             st.error("Please fill out the form correctly.")
         
         st.header("Data Table")
-        df read_data()
+        df = read_data()
         st.dataframe(df, width=800, height=480)
  
