@@ -684,88 +684,88 @@ if choose == 'Image Classification' :
         
             Feed_back = st.text_input("ข้อเสนอเเนะ(Enter your comments here)")
         
-# ตั้งค่า API URL ของ SheetDB
-SHEETDB_URL = "https://sheetdb.io/api/v1/9qm7a3nx8jjvs"
-
-# สร้างฟอร์มใน Streamlit
-st.title("กรอกข้อมูลเพื่อบันทึกลง Google Sheets")
-
-with st.form("data_form"):
-    name = st.text_input("ชื่อ")
-    email = st.text_input("อีเมล")
-    phone = st.text_input("เบอร์โทรศัพท์")
-    date = st.text_input("วันที่ (Date) dd/mm/yyyy พุทธศักราช")
-    time = st.text_input("เวลา (Time) xx:xx ")
-    age = st.slider("อายุ (Age)", 0, 100)
-    city = st.selectbox("จังหวัด (Province)", ["กรุงเทพมหานคร/Krung Thep Maha Nakhon (Bangkok)","กระบี่/Krabi","กาญจนบุรี/Kanchanaburi","กาฬสินธุ์/Kalasin","กำแพงเพชร/Kamphaeng Phet","ขอนแก่น/Khon Kaen","จันทบุรี/Chanthaburi","ฉะเชิงเทรา/Chachoengsao","ชลบุรี/Chonburi","ชัยนาท/Chainat","ชัยภูมิ/Chaiyaphum","ชุมพร/Chumphon","เชียงราย/Chiang Rai","เชียงใหม่/Chiang Mai","ตรัง/Trang ","ตราด/Trat","ตาก/Tak","นครนายก/Nakhon Nayok","นครปฐม/Nakhon Pathom","นครพนม/Nakhon Phanom",
-"นครราชสีมา/Nakhon Ratchasima",
-"นครศรีธรรมราช/Nakhon Si Thammarat",
- "นครสวรรค์/Nakhon Sawan",
- "นนทบุรี/Nonthaburi",
- "นราธิวาส/Narathiwat",
- "น่าน/Nan",
-"บึงกาฬ/Bueng Kan",
- "บุรีรัมย์/Buriram",
- "ปทุมธานี/Pathum Thani",
- "ประจวบคีรีขันธ์/Prachuap Khiri Khan ",
- "ปราจีนบุรี/Prachinburi ",                                                              
-"ปัตตานี/Pattani ",
- "พระนครศรีอยุธยา/Phra Nakhon Si Ayutthaya ",
-       "พะเยา/Phayao ",
- "พังงา/Phang Nga ",
- "พัทลุง/Phatthalung",
- "พิจิตร/Phichit ",
- "พิษณุโลก/Phitsanulok",
- "เพชรบุรี/Phetchaburi",
- "เพชรบูรณ์/Phetchabun",
- "แพร่/Phrae ",
- "ภูเก็ต/Phuket ",
- "มหาสารคาม/Maha Sarakham ",
- "มุกดาหาร/Mukdahan ",
- "แม่ฮ่องสอน/Mae Hong Son ",
- "ยโสธร/Yasothon ",
- "ยะลา/Yala ",
- "ร้อยเอ็ด/Roi Et ",
- "ระนอง/Ranong ",
- "ระยอง/Rayong ",
- "ราชบุรี/Ratchaburi ",
- "ลพบุรี/Lopburi ",
- "ลำปาง/Lampang ",
- "ลำพูน/Lamphun ",
- "เลย/Loei ",
- "ศรีสะเกษ/Sisaket ",
- "สกลนคร/Sakon Nakhon ",
- "สงขลา/Songkhla ",
- "สตูล/Satun ",
- "สมุทรปราการ/Samut Prakan ",
- "สมุทรสงคราม/Samut Songkhram ",
- "สมุทรสาคร/Samut Sakhon ",
- "สระแก้ว/Sa Kaeo ",
- "สระบุรี/Saraburi ",
- "สิงห์บุรี/Sing Buri ",
- "สุโขทัย/Sukhothai ",
- "สุพรรณบุรี/Suphan Buri ",
- "สุราษฎร์ธานี/Surat Thani ",
- "สุรินทร์/Surin ",
- "หนองคาย/Nong Khai ",
- "หนองบัวลำภู/Nong Bua Lamhu ",
- "อ่างทอง Ang/Thong ",
- "อำนาจเจริญ/Amnat Charen ",
- "อุดรธานี/Udon Thani ",
- "อุตรดิตถ์/Uttaradit ",
- "อุทัยธานี/Uthai Thani",
- "อุบลราชธานี/Ubon Ratchathani" ])
-    gender = st.selectbox("เพศ (Gender)", ["ผู้ชาย/male", "ผู้หญิง/female", "อื่นๆ/other"])
-    st.write("ตัวอย่างการกรอกข้อมูล/Example of data input 20/2/2567 18:30")
-    submitted = st.form_submit_button("ส่งข้อมูล")
+    # ตั้งค่า API URL ของ SheetDB
+    SHEETDB_URL = "https://sheetdb.io/api/v1/9qm7a3nx8jjvs"
     
+    # สร้างฟอร์มใน Streamlit
+    st.title("กรอกข้อมูลเพื่อบันทึกลง Google Sheets")
     
-    if submitted:
-        # ส่งข้อมูลไปยัง SheetDB
-        data = {"data": [{"Name": name, "Email": email, "Phone": phone,"City": city, "Insecct": predict_name, "Feedback": Feed_back }]}
-        response = requests.post(SHEETDB_URL, json=data)
-
-        if response.status_code == 201:
-            st.success("บันทึกข้อมูลสำเร็จ!")
-        else:
-            st.error(f"เกิดข้อผิดพลาด: {response.text}")
+    with st.form("data_form"):
+        name = st.text_input("ชื่อ")
+        email = st.text_input("อีเมล")
+        phone = st.text_input("เบอร์โทรศัพท์")
+        date = st.text_input("วันที่ (Date) dd/mm/yyyy พุทธศักราช")
+        time = st.text_input("เวลา (Time) xx:xx ")
+        age = st.slider("อายุ (Age)", 0, 100)
+        city = st.selectbox("จังหวัด (Province)", ["กรุงเทพมหานคร/Krung Thep Maha Nakhon (Bangkok)","กระบี่/Krabi","กาญจนบุรี/Kanchanaburi","กาฬสินธุ์/Kalasin","กำแพงเพชร/Kamphaeng Phet","ขอนแก่น/Khon Kaen","จันทบุรี/Chanthaburi","ฉะเชิงเทรา/Chachoengsao","ชลบุรี/Chonburi","ชัยนาท/Chainat","ชัยภูมิ/Chaiyaphum","ชุมพร/Chumphon","เชียงราย/Chiang Rai","เชียงใหม่/Chiang Mai","ตรัง/Trang ","ตราด/Trat","ตาก/Tak","นครนายก/Nakhon Nayok","นครปฐม/Nakhon Pathom","นครพนม/Nakhon Phanom",
+    "นครราชสีมา/Nakhon Ratchasima",
+    "นครศรีธรรมราช/Nakhon Si Thammarat",
+     "นครสวรรค์/Nakhon Sawan",
+     "นนทบุรี/Nonthaburi",
+     "นราธิวาส/Narathiwat",
+     "น่าน/Nan",
+    "บึงกาฬ/Bueng Kan",
+     "บุรีรัมย์/Buriram",
+     "ปทุมธานี/Pathum Thani",
+     "ประจวบคีรีขันธ์/Prachuap Khiri Khan ",
+     "ปราจีนบุรี/Prachinburi ",                                                              
+    "ปัตตานี/Pattani ",
+     "พระนครศรีอยุธยา/Phra Nakhon Si Ayutthaya ",
+           "พะเยา/Phayao ",
+     "พังงา/Phang Nga ",
+     "พัทลุง/Phatthalung",
+     "พิจิตร/Phichit ",
+     "พิษณุโลก/Phitsanulok",
+     "เพชรบุรี/Phetchaburi",
+     "เพชรบูรณ์/Phetchabun",
+     "แพร่/Phrae ",
+     "ภูเก็ต/Phuket ",
+     "มหาสารคาม/Maha Sarakham ",
+     "มุกดาหาร/Mukdahan ",
+     "แม่ฮ่องสอน/Mae Hong Son ",
+     "ยโสธร/Yasothon ",
+     "ยะลา/Yala ",
+     "ร้อยเอ็ด/Roi Et ",
+     "ระนอง/Ranong ",
+     "ระยอง/Rayong ",
+     "ราชบุรี/Ratchaburi ",
+     "ลพบุรี/Lopburi ",
+     "ลำปาง/Lampang ",
+     "ลำพูน/Lamphun ",
+     "เลย/Loei ",
+     "ศรีสะเกษ/Sisaket ",
+     "สกลนคร/Sakon Nakhon ",
+     "สงขลา/Songkhla ",
+     "สตูล/Satun ",
+     "สมุทรปราการ/Samut Prakan ",
+     "สมุทรสงคราม/Samut Songkhram ",
+     "สมุทรสาคร/Samut Sakhon ",
+     "สระแก้ว/Sa Kaeo ",
+     "สระบุรี/Saraburi ",
+     "สิงห์บุรี/Sing Buri ",
+     "สุโขทัย/Sukhothai ",
+     "สุพรรณบุรี/Suphan Buri ",
+     "สุราษฎร์ธานี/Surat Thani ",
+     "สุรินทร์/Surin ",
+     "หนองคาย/Nong Khai ",
+     "หนองบัวลำภู/Nong Bua Lamhu ",
+     "อ่างทอง Ang/Thong ",
+     "อำนาจเจริญ/Amnat Charen ",
+     "อุดรธานี/Udon Thani ",
+     "อุตรดิตถ์/Uttaradit ",
+     "อุทัยธานี/Uthai Thani",
+     "อุบลราชธานี/Ubon Ratchathani" ])
+        gender = st.selectbox("เพศ (Gender)", ["ผู้ชาย/male", "ผู้หญิง/female", "อื่นๆ/other"])
+        st.write("ตัวอย่างการกรอกข้อมูล/Example of data input 20/2/2567 18:30")
+        submitted = st.form_submit_button("ส่งข้อมูล")
+        
+        
+        if submitted:
+            # ส่งข้อมูลไปยัง SheetDB
+            data = {"data": [{"Name": name, "Email": email, "Phone": phone,"City": city, "Insecct": predict_name, "Feedback": Feed_back }]}
+            response = requests.post(SHEETDB_URL, json=data)
+    
+            if response.status_code == 201:
+                st.success("บันทึกข้อมูลสำเร็จ!")
+            else:
+                st.error(f"เกิดข้อผิดพลาด: {response.text}")
