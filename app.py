@@ -749,8 +749,8 @@ def connect_to_gsheet(creds_json, spreadsheet_name, sheet_name):
             "https://www.googleapis.com/auth/drive.file",
             "https://www.googleapis.com/auth/drive"]
     credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_json, scope)
-    client gspread.authorize (credentials)
-    spreadsheet client.open ('ผู้ใช้งาน')
+    client = gspread.authorize (credentials)
+    spreadsheet = client.open ('ผู้ใช้งาน')
     return spreadsheet.worksheet ('ข้อมูล') # Access specific sheet by name
 #Google Sheet credentials and details
 SPREADSHEET_NAME = 'Streamlit'
