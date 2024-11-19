@@ -772,10 +772,10 @@ def add_data(row):
 st.subheader("กรอกข้อมูล")
 with st.form(key="data_form"):
     name = st.text_input("Name")
-    age st.number_input("Age", min_value=0, max_value=120)
-    email st.text_input("Email")
+    age = st.number_input("Age", min_value=0, max_value=120)
+    email = st.text_input("Email")
     
-    submitted st.form_submit_button("Submit")
+    submitted = st.form_submit_button("Submit")
     
     if submitted:
         if name and email: 
