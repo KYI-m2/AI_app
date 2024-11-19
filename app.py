@@ -703,7 +703,7 @@ if choose == 'Image Classification' :
                         st.write("แผล:")
                         st.image("A010_เรือด.jpg")
                     elif predicted_name == 'โลน':
-                        st.write("แผล:"
+                        st.write("แผล:")
                         st.image("A015_โลน.jpg")
                     elif predicted_name == 'ยุงลายบ้าน':
                         st.write("แผล:")
@@ -743,35 +743,15 @@ if choose == 'Image Classification' :
         
             Feed_back = st.text_input("ข้อเสนอเเนะ(Enter your comments here)")
         
-            import gspread
-            from google.oauth2.service_account import Credentials
-            
-            # ตั้งค่าการเชื่อมต่อ Google Sheets
-            SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-            SERVICE_ACCOUNT_FILE = 'path/to/your-json-key.json'  # ใส่ path ไฟล์ JSON
-            creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
-            client = gspread.authorize(creds)
-            
-            # เปิด Google Sheet
-            spreadsheet = client.open("MyWebsiteData")  # ใส่ชื่อไฟล์ Google Sheet
-            sheet = spreadsheet.sheet1  # ใช้ Sheet แรก
-            
-            # ส่วน UI ด้วย Streamlit
-            st.title("กรอกข้อมูลเพื่อบันทึกลง Google Sheets")
-            
-            with st.form("data_form"):
-                name = st.text_input("ชื่อ")
-                email = st.text_input("อีเมล")
-                phone = st.text_input("เบอร์โทรศัพท์")
-                submitted = st.form_submit_button("ส่งข้อมูล")
-            
-                if submitted:
-                    # เพิ่มข้อมูลลงใน Google Sheets
-                    try:
-                        sheet.append_row([name, email, phone])
-                        st.success("บันทึกข้อมูลสำเร็จ!")
-                    except Exception as e:
-                        st.error(f"เกิดข้อผิดพลาด: {e}")
+def connect_to_gsheet(creds_json, spreadsheet_name, sheet_name):
+    scope = ["https://spreadsheets.google.com/feeds",
+            'https://www.googleapis.com/auth/spreadsheets'
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/drive"]
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_json, scope)
+    client gspread.authorize (credentials)
+    spreadsheet client.open ('ผู้ใช้งาน')
+    return spreadsheet.worksheet ('ข้อมูล') # Access specific sheet by name
 
 
  
