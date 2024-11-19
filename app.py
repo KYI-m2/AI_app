@@ -46,7 +46,7 @@ st.markdown(side_bg_img, unsafe_allow_html=True)
 
     
 def download_file_from_google_drive(file_id, destination):
-    base_url = "https://drive.google.com/uc?export=download"
+    base_url = "https://drive.google.com/file/d/1vvfkI-Qeo7xu1DS7FVGFqt9qKG950HhX/view?usp=sharing"
     session = requests.Session()
 
     # First request to get the download confirmation token (if required)
