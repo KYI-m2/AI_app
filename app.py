@@ -731,6 +731,7 @@ if choose == 'Image Classification' :
         predicted_name = st.selectbox("จังหวัด (Province)", ["ด้วงน้ำมัน", "ด้วงก้นกระดก", "แมลงตด", "แมลงบุกบ้าน", "ผึ้งหลวง",  "เรือด",
         "โลน","ยุงลายบ้าน","ริ้นฝอยทราย"])
         check = st.selectbox("Check", ["⭐⭐⭐⭐⭐ ดีมาก(Excellent)", "⭐⭐⭐⭐ ดี(Good)", "⭐⭐⭐ พอใช้(Fair)", "⭐⭐ น้อย(Poor)", "⭐ น้อยที่สุด(Very poor)"])
+        performance = st.selectbox("Preformmance", ["ทำนายภาพได้ถูกต้อง", "ทำนายภาพได้ไม่ถูกต้อง"])
         Feed_back = st.text_input("ข้อเสนอเเนะ(Enter your comments here)")
 
         submitted = st.form_submit_button("ส่งข้อมูล")
@@ -738,7 +739,7 @@ if choose == 'Image Classification' :
         
         if submitted:
             # ส่งข้อมูลไปยัง SheetDB
-            data = {"data": [{"City": city, "Insecct": predicted_name, "Check": check, "Feedback": Feed_back }]}
+            data = {"data": [{"City": city, "Insecct": predicted_name, "Check": check, "Feedback": Feed_back, "Performmance": performance }]}
             response = requests.post(SHEETDB_URL, json=data)
     
             if response.status_code == 201:
