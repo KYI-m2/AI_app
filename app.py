@@ -756,7 +756,7 @@ if choose == 'Image Classification' :
         
         if submitted:
             # ส่งข้อมูลไปยัง SheetDB
-            data = {"data": [{"Name": name, "Email": email, "Phone": phone,"City": city, "Insecct": predict_name, "Feedback": Feed_back }]}
+            data = {"data": [{"City": city, "Insecct": predict_name, "Check": check, "Feedback": Feed_back }]}
             response = requests.post(SHEETDB_URL, json=data)
     
             if response.status_code == 201:
