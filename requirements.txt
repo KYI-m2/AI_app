@@ -13,4 +13,3 @@ javascript
 streamlit-extras
 gspread
 oauth2client
-json
