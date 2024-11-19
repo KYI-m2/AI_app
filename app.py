@@ -728,6 +728,8 @@ if choose == 'Image Classification' :
      "อุตรดิตถ์/Uttaradit ",
      "อุทัยธานี/Uthai Thani",
      "อุบลราชธานี/Ubon Ratchathani" ])
+        predicted_name = st.selectbox("จังหวัด (Province)", ["ด้วงน้ำมัน", "ด้วงก้นกระดก", "แมลงตด", "แมลงบุกบ้าน", "ผึ้งหลวง",  "เรือด",
+        "โลน","ยุงลายบ้าน","ริ้นฝอยทราย"])
         check = st.selectbox("Check", ["⭐⭐⭐⭐⭐ ดีมาก(Excellent)", "⭐⭐⭐⭐ ดี(Good)", "⭐⭐⭐ พอใช้(Fair)", "⭐⭐ น้อย(Poor)", "⭐ น้อยที่สุด(Very poor)"])
         Feed_back = st.text_input("ข้อเสนอเเนะ(Enter your comments here)")
 
