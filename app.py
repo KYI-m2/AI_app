@@ -761,11 +761,11 @@ sheet_by_name = connect_to_gsheet (CREDENTIALS_FILE, SPREADSHEET_NAME, sheet_nam
 st.title("Simple Data Entry using Streamlit")
 
 def read_data():
-    data sheet_by_name.get_all_records() # Get all records from Google Sheet
+    data = sheet_by_name.get_all_records() 
     return pd.DataFrame(data)
     
 def add_data(row):
-    sheet_by_name.append_row(row) # Append the row to the Google Sheet
+    sheet_by_name.append_row(row) 
     
     st.header("Enter New Data")
     
@@ -778,7 +778,7 @@ with st.form(key="data_form"):
     submitted st.form_submit_button("Submit")
     
     if submitted:
-        if name and email: # Basic validation to check if
+        if name and email: 
             add_data([name, age, email]) Append the row
             st.success("Data added successfully!")
         else:
