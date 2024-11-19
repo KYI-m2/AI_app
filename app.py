@@ -749,7 +749,7 @@ if choose == 'Image Classification' :
      "อุตรดิตถ์/Uttaradit ",
      "อุทัยธานี/Uthai Thani",
      "อุบลราชธานี/Ubon Ratchathani" ])
-        gender = st.selectbox("เพศ (Gender)", ["ผู้ชาย/male", "ผู้หญิง/female", "อื่นๆ/other"])
+        check = st.selectbox("เพศ (Gender)", ["⭐⭐⭐⭐⭐ ดีมาก(Excellent)", "⭐⭐⭐⭐ ดี(Good)", "⭐⭐⭐ พอใช้(Fair)", "⭐⭐ น้อย(Poor)", "⭐ น้อยที่สุด(Very poor)"])
         st.write("ตัวอย่างการกรอกข้อมูล/Example of data input 20/2/2567 18:30")
         submitted = st.form_submit_button("ส่งข้อมูล")
         
