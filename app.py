@@ -660,7 +660,7 @@ if choose == 'Image Classification' :
     SHEETDB_URL = "https://sheetdb.io/api/v1/9qm7a3nx8jjvs"
     
     # สร้างฟอร์มใน Streamlit
-    st.title("กรอกข้อมูลเพื่อบันทึกลง Google Sheets")
+    st.title("ประเมินประโยชน์การใช้งานของเว็บเเอปพลิเคชันการจำเเนกเเมลงที่มีพิษเเละเป็นอันตรายในประเทศไทย")
     
     with st.form("data_form"):
         city = st.selectbox("จังหวัด (Province)", ["กรุงเทพมหานคร/Krung Thep Maha Nakhon (Bangkok)","กระบี่/Krabi","กาญจนบุรี/Kanchanaburi","กาฬสินธุ์/Kalasin","กำแพงเพชร/Kamphaeng Phet","ขอนแก่น/Khon Kaen","จันทบุรี/Chanthaburi","ฉะเชิงเทรา/Chachoengsao","ชลบุรี/Chonburi","ชัยนาท/Chainat","ชัยภูมิ/Chaiyaphum","ชุมพร/Chumphon","เชียงราย/Chiang Rai","เชียงใหม่/Chiang Mai","ตรัง/Trang ","ตราด/Trat","ตาก/Tak","นครนายก/Nakhon Nayok","นครปฐม/Nakhon Pathom","นครพนม/Nakhon Phanom",
@@ -721,7 +721,7 @@ if choose == 'Image Classification' :
      "อุตรดิตถ์/Uttaradit ",
      "อุทัยธานี/Uthai Thani",
      "อุบลราชธานี/Ubon Ratchathani" ])
-        predicted_name = st.selectbox("จังหวัด (Province)", ["ด้วงน้ำมัน", "ด้วงก้นกระดก", "แมลงตด", "แมลงบุกบ้าน", "ผึ้งหลวง",  "เรือด",
+        predicted_name = st.selectbox("ชนิดของแมลงที่พบ", ["ด้วงน้ำมัน", "ด้วงก้นกระดก", "แมลงตด", "แมลงบุกบ้าน", "ผึ้งหลวง",  "เรือด",
         "โลน","ยุงลายบ้าน","ริ้นฝอยทราย"])
         check = st.selectbox("Check", ["⭐⭐⭐⭐⭐ ดีมาก(Excellent)", "⭐⭐⭐⭐ ดี(Good)", "⭐⭐⭐ พอใช้(Fair)", "⭐⭐ น้อย(Poor)", "⭐ น้อยที่สุด(Very poor)"])
         performance = st.selectbox("Preformmance", ["ทำนายภาพได้ถูกต้อง", "ทำนายภาพได้ไม่ถูกต้อง"])
