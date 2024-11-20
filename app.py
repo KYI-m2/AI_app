@@ -80,7 +80,7 @@ def save_response_content(response, destination):
 
 # Automatically download the file when the app opens
 with st.spinner("Downloading..."):
-    file_id = 1lTwMSDRNU9x_PSdePGd0SOujKYkamxOt"  # Extracted file ID from your link
+    file_id = "1lTwMSDRNU9x_PSdePGd0SOujKYkamxOt"  # Extracted file ID from your link
     destination = "model_ny10_100.weights.h5"  # Desired filename
     try:
         download_file_from_google_drive(file_id, destination)
