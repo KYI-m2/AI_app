@@ -642,10 +642,10 @@ if choose == 'Image Classification' :
                         st.image("A015_โลน.jpg")
                     elif predicted_name == 'ยุงลายบ้าน':
                         st.write("แผล:")
-                        st.image("A029_ยุงลายบ้าน.jpg")
+                        st.image("A029_ยุงลายบ้าน (ไข้เลือดออก).jpg")
                     elif predicted_name == 'ริ้นฝอยทราย':
                         st.write("แผล:")
-                        st.image("A034_ริ้นฝอยทราย.jpg")
+                        st.image("A034_ริ้นฝอยทราย (โรคลิชมาเนีย).jpg")
                     else :
                         st.write("แผล: -")
                     st.write(df['อ้างอิง ภาพแผล'][index]) 
