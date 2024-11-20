@@ -633,7 +633,7 @@ if choose == 'Image Classification' :
                         st.image("A003_แมลงตด.jpg")
                     elif predicted_name == 'ผึ้งหลวง':
                         st.write("แผล:")
-                        st.image("A005_ผึ้งหลวง.jpg")
+                        st.image("A006_ผึ้งพันธุ์ 2.jpg")
                     elif predicted_name == 'เรือด':
                         st.write("แผล:")
                         st.image("A010_เรือด.jpg")
