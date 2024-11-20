@@ -664,7 +664,7 @@ if choose == 'Image Classification' :
     st.title("ประเมินประโยชน์การใช้งานของเว็บเเอปพลิเคชันการจำเเนกเเมลงที่มีพิษเเละเป็นอันตรายในประเทศไทย")
     
     with st.form("data_form"):
-        city = st.selectbox("จังหวัด (Province)", ["กรุงเทพมหานคร/Krung Thep Maha Nakhon (Bangkok)","กระบี่/Krabi","กาญจนบุรี/Kanchanaburi","กาฬสินธุ์/Kalasin","กำแพงเพชร/Kamphaeng Phet","ขอนแก่น/Khon Kaen","จันทบุรี/Chanthaburi","ฉะเชิงเทรา/Chachoengsao","ชลบุรี/Chonburi","ชัยนาท/Chainat","ชัยภูมิ/Chaiyaphum","ชุมพร/Chumphon","เชียงราย/Chiang Rai","เชียงใหม่/Chiang Mai","ตรัง/Trang ","ตราด/Trat","ตาก/Tak","นครนายก/Nakhon Nayok","นครปฐม/Nakhon Pathom","นครพนม/Nakhon Phanom",
+        city = st.selectbox("จังหวัดที่พบแมลง (Province)", ["กรุงเทพมหานคร/Krung Thep Maha Nakhon (Bangkok)","กระบี่/Krabi","กาญจนบุรี/Kanchanaburi","กาฬสินธุ์/Kalasin","กำแพงเพชร/Kamphaeng Phet","ขอนแก่น/Khon Kaen","จันทบุรี/Chanthaburi","ฉะเชิงเทรา/Chachoengsao","ชลบุรี/Chonburi","ชัยนาท/Chainat","ชัยภูมิ/Chaiyaphum","ชุมพร/Chumphon","เชียงราย/Chiang Rai","เชียงใหม่/Chiang Mai","ตรัง/Trang ","ตราด/Trat","ตาก/Tak","นครนายก/Nakhon Nayok","นครปฐม/Nakhon Pathom","นครพนม/Nakhon Phanom",
     "นครราชสีมา/Nakhon Ratchasima",
     "นครศรีธรรมราช/Nakhon Si Thammarat",
      "นครสวรรค์/Nakhon Sawan",
@@ -724,8 +724,9 @@ if choose == 'Image Classification' :
      "อุบลราชธานี/Ubon Ratchathani" ])
         predicted_name = st.selectbox("ชนิดของแมลงที่พบ", ["ด้วงน้ำมัน", "ด้วงก้นกระดก", "แมลงตด", "แมลงบุกบ้าน", "ผึ้งหลวง",  "เรือด",
         "โลน","ยุงลายบ้าน","ริ้นฝอยทราย"])
-        check = st.selectbox("Check", ["⭐⭐⭐⭐⭐ ดีมาก(Excellent)", "⭐⭐⭐⭐ ดี(Good)", "⭐⭐⭐ พอใช้(Fair)", "⭐⭐ น้อย(Poor)", "⭐ น้อยที่สุด(Very poor)"])
-        performance = st.selectbox("Preformmance", ["ทำนายภาพได้ถูกต้อง", "ทำนายภาพได้ไม่ถูกต้อง"])
+        
+        performance = st.selectbox("ความถูกต้องของเว็บแอปพลิเคชั่น", ["ทำนายภาพได้ถูกต้อง", "ทำนายภาพได้ไม่ถูกต้อง"])
+        check = st.selectbox("ประเมินประโยชน์จากการใช้งานของเว็บแอปพลิเคชั่น", ["⭐⭐⭐⭐⭐ ดีมาก(Excellent)", "⭐⭐⭐⭐ ดี(Good)", "⭐⭐⭐ พอใช้(Fair)", "⭐⭐ น้อย(Poor)", "⭐ น้อยที่สุด(Very poor)"])
         Feed_back = st.text_input("ข้อเสนอเเนะ(Enter your comments here)")
 
         submitted = st.form_submit_button("ส่งข้อมูล")
