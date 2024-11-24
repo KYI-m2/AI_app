@@ -82,12 +82,7 @@ def save_response_content(response, destination):
 with st.spinner("Downloading..."):
     file_id = "1vvfkI-Qeo7xu1DS7FVGFqt9qKG950HhX"  # Extracted file ID from your link
     destination = "model_ny9new.weights.h5"  # Desired filename
-    try:
-        download_file_from_google_drive(file_id, destination)
-        st.success(f"File downloaded successfully: {destination}")
-    except Exception as e:
-        st.error(f"Error occurred while downloading: {e}")
-
+    
 
 css = '''
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
