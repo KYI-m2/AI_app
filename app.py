@@ -48,6 +48,7 @@ st.markdown(side_bg_img, unsafe_allow_html=True)
 import requests
 import streamlit as st
 
+
 def download_file_from_google_drive(file_id, destination):
     base_url = "https://drive.google.com/uc?export=download"
     session = requests.Session()
@@ -80,9 +81,12 @@ def save_response_content(response, destination):
 
 # Automatically download the file when the app opens
 with st.spinner("Downloading..."):
-    file_id = "1vvfkI-Qeo7xu1DS7FVGFqt9qKG950HhX"  # Extracted file ID from your link
-    destination = "model_ny9new.weights.h5"  # Desired filename
-    
+    try:
+        file_id = "1vvfkI-Qeo7xu1DS7FVGFqt9qKG950HhX"  # Replace with your Google Drive file ID
+        destination = "model_ny9new.weights.h5"  # Desired filename
+        download_file_from_google_drive(file_id, destination)
+    except Exception:
+        pass  # Silently handle errors if any
 
 css = '''
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
