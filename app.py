@@ -189,7 +189,7 @@ if choose == 'Search Bar':
     
     if search_query:
         # Filter results based on the search query
-        results = df[df["insect_name"].str.lower() == search_query.lower()]
+        results = df[df["insect_name"].str.contains(search_query, case=False, na=False)]
         insect_name = search_query
         if not results.empty:
             st.write("Results:")
