@@ -284,9 +284,9 @@ if choose == 'Search Bar':
                 st.write("**Poison:**", row["poision"])
                 st.write("**Symptoms:**", row["symptom"])
                 if row["insect_name"] in wound_image_map:
-                st.image(wound_image_map[row["insect_name"]], caption="Common wound/lesion caused by contact")
+                    st.image(wound_image_map[row["insect_name"]], caption="Common wound/lesion caused by contact")
                 else:
-                st.write("No wound image available for this insect.")
+                    st.write("No wound image available for this insect.")
                 st.write("**How to Protect:**", row["How to protect"])
                 st.write("---")  # Separator for clarity
         else:
