@@ -216,7 +216,7 @@ if choose == 'Search Bar':
         "หมัด": "A035_025.jpg",
         "เหา": "A036_028.jpg",
         }
-        wound_image_map = {
+    wound_image_map = {
         "ด้วงน้ำมัน": "A001_แผล.jpg",
         "ด้วงก้นกระดก": "A002_แผล.jpg",
         "แมลงตด": "A003_แผล.jpg",
