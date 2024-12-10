@@ -172,276 +172,88 @@ if choose == 'Search Bar':
         return r.json()
     lottie_hello = load_lottieurl("https://lottie.host/7cd0e391-66dc-42d9-9ca6-9a26aa8da25e/xn4QK6WpVX.json")
     st_lottie(lottie_hello)  
-    df = pd.read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRbJASheYsGWBGRERpBkHJ0tGyLepOue779r-kCYiz9i063jnUqCVRRq5jpkkAfRf5J1O44tT6Tc2Z7/pub?gid=587778608&single=true&output=csv")
-    insect_names = df["insect_name"]
-    data = [
-        "ด้วงน้ำมัน", "ด้วงก้นกระดก", "แมลงตด", "แมลงบุกบ้าน", "ผึ้งหลวง", 
-        "ผึ้งเลี้ยง", "ตัวต่อหัวเสือ", "แตน", "มวนเพชฌฆาต", "เรือด",
-        "หนอนบุ้งร่าน", "แมลงสาบอเมริกัน", "แมลงสาบเยอรมัน", "แมลงสาบผี",
-        "โลน", "มดคันไฟ", "มดง่าม", "มดดำ", "มดตะนอย", "แมลงวันบ้าน", 
-        "หมาร่า", "แมลงวันหัวเขียว", "แมลงวันคอกสัตว์", "แมลงวันตา", 
-        "แมลงวันหลังลาย", "แมลงวันเซ็ทซี", "ยุงก้นปล่อง", "ยุงรำคาญ", 
-        "ยุงลายบ้าน", "ยุงลายสวน", "ยุงลายเสือ", "ริ้นดำ", 
-        "ริ้นน้ำเค็ม", "ริ้นฝอยทราย", "หมัด", "เหา"
-    ]
+    # Load data from Google Sheets
+    df = pd.read_csv(
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRbJASheYsGWBGRERpBkHJ0tGyLepOue779r-kCYiz9i063jnUqCVRRq5jpkkAfRf5J1O44tT6Tc2Z7/pub?gid=587778608&single=true&output=csv"
+    )
     
-    search_query = st.text_input("Search for an insect:")
+    # Map insect names to image paths
+    image_map = {
+        "ด้วงน้ำมัน": "A001_001.jpg",
+        "ด้วงก้นกระดก": "A002_027.jpg",
+        "แมลงตด": "A003_021.jpg",
+        "แมลงบุกบ้าน": "A004_006.jpg",
+        "ผึ้งหลวง": "A005_019.jpg",
+        "ผึ้งเลี้ยง": "A006_001.jpg",
+        "ตัวต่อหัวเสือ": "A007_083.jpg",
+        "แตน": "A008_008.jpg",
+        "มวนเพชฌฆาต": "A009_001.jpg",
+        "เรือด": "A010_001.jpg",
+        "หนอนบุ้งร่าน": "A11_080.jpg",
+        "แมลงสาบอเมริกัน": "A012_003.jpg",
+        "แมลงสาบเยอรมัน": "A013_001.jpg",
+        "แมลงสาบผี": "A014_031.jpg",
+        "โลน": "A015_101.jpg",
+        "มดคันไฟ": "A016_073.jpg",
+        "มดง่าม": "A017_084.jpg",
+        "มดดำ": "A018_098.jpg",
+        "มดตะนอย": "A019_085.jpg",
+        "แมลงวันบ้าน": "A020_052.jpg",
+        "หมาร่า": "A021_072.jpg",
+        "แมลงวันหัวเขียว": "A022_001.jpg",
+        "แมลงวันคอกสัตว์": "A023_001.jpg",
+        "แมลงวันตา": "A024_070.jpg",
+        "แมลงวันหลังลาย": "A025_001.jpg",
+        "แมลงวันเซ็ทซี": "A026_094.jpg",
+        "ยุงก้นปล่อง": "A027_096.jpg",
+        "ยุงรำคาญ": "A028_001.jpg",
+        "ยุงลายบ้าน": "A029_056.jpg",
+        "ยุงลายสวน": "A030_085.jpg",
+        "ยุงลายเสือ": "A031_055.jpg",
+        "ริ้นดำ": "A032_099.jpg",
+        "ริ้นน้ำเค็ม": "A033_098.jpg",
+        "ริ้นฝอยทราย": "A034_027.jpg",
+        "หมัด": "A035_025.jpg",
+        "เหา": "A036_028.jpg",
+    }
     
-    if search_query:
-        # Filter results based on the search query
-        results = df[df["insect_name"].str.contains(search_query, case=False, na=False)]
-        insect_name = search_query
+    # App title
+    st.title("Insect Search")
+    
+    # Search bar
+    query = st.text_input("Search for an insect:", "")
+    
+    # Search logic
+    if query:
+        # Filter the dataset based on the query
+        results = df[df["insect_name"].str.contains(query, case=False, na=False)]
+    
+        # Display results dynamically
         if not results.empty:
-            st.write("Results:")
-            for index, row in results.iterrows():
-                if insect_name == 'ด้วงน้ำมัน':
-                    st.image("A001_001.jpg")
-                elif insect_name == 'ด้วงก้นกระดก':
-                    st.image("A002_027.jpg")
-                elif insect_name == 'แมลงตด':
-                    st.image("A003_021.jpg")
-                elif insect_name == 'แมลงบุกบ้าน':
-                    st.image("A004_006.jpg")
-                elif insect_name == 'ผึ้งหลวง':
-                    st.image("A005_019.jpg")
-                elif insect_name == 'ผึ้งเลี้ยง':
-                    st.image("A006_001.jpg")
-                elif insect_name == 'ตัวต่อหัวเสือ':
-                    st.image("A007_083.jpg")
-                elif insect_name == 'แตน':
-                    st.image("A008_008.jpg")
-                elif insect_name == 'มวนเพชรฆาต':
-                    st.image("A009_001.jpg")
-                elif insect_name == 'เรือด':
-                    st.image("A010_001.jpg")
-                elif insect_name == 'หนอนบุ้งร่าน':
-                    st.image("A11_080.jpg")
-                elif insect_name == 'แมลงสาบอเมริกัน':
-                    st.image("A012_003.jpg")
-                elif insect_name == 'แมลงสาบเยอรมัน':
-                    st.image("A013_001.jpg")
-                elif insect_name == 'แมลงสาบผี':
-                    st.image("A014_031.jpg")
-                elif insect_name == 'โลน':
-                    st.image("A015_101.jpg")
-                elif insect_name == 'มดคันไฟ':
-                    st.image("A016_073.jpg")
-                elif insect_name == 'มดง่าม':
-                    st.image("A017_084.jpg")
-                elif insect_name == 'มดดำ':
-                    st.image("A018_098.jpg")
-                elif insect_name == 'มดตะนอย':
-                    st.image("A019_085.jpg")
-                elif insect_name == 'แมลงวันบ้าน':
-                    st.image("A020_052.jpg")
-                elif insect_name == 'หมาร่า':
-                    st.image("A021_072.jpg")
-                elif insect_name == 'แมลงวันหัวเขียว':
-                    st.image("A022_001.jpg")
-                elif insect_name == 'แมลงวันคอกสัตว์':
-                    st.image("A023_001.jpg")
-                elif insect_name == 'แมลงวันตา':
-                    st.image("A024_070.jpg")
-                elif insect_name == 'แมลงวันหลังลาย':
-                    st.image("A025_001.jpg")
-                elif insect_name == 'แมลงวันเซ็ทซี':
-                    st.image("A026_094.jpg")
-                elif insect_name == 'ยุงก้นปล่อง':
-                    st.image("A027_096.jpg")
-                elif insect_name == 'ยุงรำคาญ':
-                    st.image("A028_001.jpg")
-                elif insect_name == 'ยุงลายบ้าน':
-                    st.image("A029_056.jpg")
-                elif insect_name == 'ยุงลายสวน':
-                    st.image("A030_085.jpg")
-                elif insect_name == 'ยุงลายเสือ':
-                    st.image("A031_055.jpg")
-                elif insect_name == 'ริ้นดำ หรือตัวคุ่น':
-                    st.image("A032_099.jpg")
-                elif insect_name == 'ริ้นน้ำเค็ม':
-                    st.image("A033_098.jpg")
-                elif insect_name == 'ริ้นฝอยทราย':
-                    st.image("A034_027.jpg")
-                elif insect_name == 'หมัด':
-                    st.image("A035_025.jpg")
+            st.write(f"### Search Results for '{query}':")
+            for _, row in results.iterrows():
+                # Display insect details
+                st.subheader(row["insect_name"])  # Display insect name
+                if row["insect_name"] in image_map:
+                    st.image(image_map[row["insect_name"]], caption=row["insect_name"])
                 else:
-                    st.image("A036_028.jpg")
+                    st.write("No image available.")
                 
-
-                st.write(row['อ้างอิงตัวอย่างแมลง'])
-                st.write("Insect Name:", row["insect_name"])
-                st.write("Scientific Name:", row['insect_sci_name'])
-                st.write("Type:", row['type'])
-                st.write("Characteristics:", row['characteristics'])
-                st.write("find:", row['find'])
-                if insect_name == 'ด้วงน้ำมัน':
-                    st.image("A001.jpg")
-                elif insect_name == 'ด้วงก้นกระดก':
-                    st.image("A002.jpeg")
-                elif insect_name == 'แมลงตด':
-                    st.image("A003.jpeg")
-                elif insect_name == 'แมลงบุกบ้าน':
-                    st.image("A004.jpeg")
-                elif insect_name == 'ผึ้งหลวง':
-                    st.image("A005.jpeg")
-                elif insect_name == 'ผึ้งเลี้ยง':
-                    st.image("A006.jpeg")
-                elif insect_name == 'ตัวต่อหัวเสือ':
-                    st.image("A007.jpg")
-                elif insect_name == 'แตน':
-                    st.image("A008.jpg")
-                elif insect_name == 'มวนเพชรฆาต':
-                    st.image("A009.jpeg")
-                elif insect_name == 'เรือด':
-                    st.image("A010.jpeg")
-                elif insect_name == 'หนอนบุ้งร่าน':
-                    st.image("A011.jpeg")
-                elif insect_name == 'แมลงสาบอเมริกัน':
-                    st.image("A012.jpeg")
-                elif insect_name == 'แมลงสาบเยอรมัน':
-                    st.image("A013.jpeg")
-                elif insect_name == 'แมลงสาบผี':
-                    st.image("A014.jpeg")
-                elif insect_name == 'โลน':
-                    st.image("A015.jpeg")
-                elif insect_name == 'มดคันไฟ':
-                    st.image("A016.jpeg")
-                elif insect_name == 'มดง่าม':
-                    st.image("A017.jpeg")
-                elif insect_name == 'มดดำ':
-                    st.image("A018.jpeg")
-                elif insect_name == 'มดตะนอย':
-                    st.image("A019.jpeg")
-                elif insect_name == 'แมลงวันบ้าน':
-                    st.image("A020.jpeg")
-                elif insect_name == 'หมาร่า':
-                    st.image("A021.jpeg")
-                elif insect_name == 'แมลงวันหัวเขียว':
-                    st.image("A022.jpg")
-                elif insect_name == 'แมลงวันคอกสัตว์':
-                    st.image("A023.jpg")
-                elif insect_name == 'แมลงวันตา':
-                    st.image("A024.jpeg")
-                elif insect_name == 'แมลงวันหลังลาย':
-                    st.image("A025.jpeg")
-                elif insect_name == 'แมลงวันเซ็ทซี':
-                    st.image("A026.jpeg")
-                elif insect_name == 'ยุงก้นปล่อง':
-                    st.image("A027.jpeg")
-                elif insect_name == 'ยุงรำคาญ':
-                    st.image("A028.jpeg")
-                elif insect_name == 'ยุงลายบ้าน':
-                    st.image("A029.jpeg")
-                elif insect_name == 'ยุงลายสวน':
-                    st.image("A030.jpeg")
-                elif insect_name == 'ยุงลายเสือ':
-                    st.image("A031.jpeg")
-                elif insect_name == 'ริ้นดำ หรือตัวคุ่น':
-                    st.image("A032.jpeg")
-                elif insect_name == 'ริ้นน้ำเค็ม':
-                    st.image("A033.jpeg")
-                elif insect_name == 'ริ้นฝอยทราย':
-                    st.image("A034.jpeg")
-                elif insect_name == 'หมัด':
-                    st.image("A035.jpeg")
-                else:
-                    st.image("A036.jpeg")
-                
-                st.write("poision:", row['poision'])
-                st.write("symptom:", row['symptom'])
-                
-                
-                if insect_name == 'ด้วงก้นกระดก':
-                    st.write("แผล:")
-                    st.image("A002_แมลงก้นกระดก.jpg")
-                elif insect_name == 'ด้วงน้ำมัน':
-                    st.write("แผล:")
-                    st.image("A001_แมลงด้วงน้ำมัน 2.jpg")
-                elif insect_name == 'แมลงตด':
-                    st.write("แผล:")
-                    st.image("A003_แมลงตด.jpg")
-                elif insect_name == 'ผึ้งหลวง':
-                    st.write("แผล:")
-                    st.image("A005_ผึ้งหลวง.jpg")
-                elif insect_name == 'ผึ้งพันธุ์':
-                    st.write("แผล:")
-                    st.image("A006_ผึ้งพันธุ์ 2.jpg")
-                elif insect_name == 'ต่อหัวเสือ':
-                    st.write("แผล:")
-                    st.image("A007_ต่อหัวเสือ.jpg")
-                elif insect_name == 'แตนลาม':
-                    st.write("แผล:")
-                    st.image("A008_แตนลาม.jpg")
-                elif insect_name == 'มวนเพชฌฆาต':
-                    st.write("แผล:")
-                    st.image("A009_มวนเพชฌฆาต.jpg")
-                elif insect_name == 'เรือด':
-                    st.write("แผล:")
-                    st.image("A010_เรือด 2.jpg")
-                elif insect_name == 'หนอนบุ้งร่าน':
-                    st.write("แผล:")
-                    st.image("A011_หนอนบุ้งร่าน.jpg")
-                elif insect_name == 'โลน':
-                    st.write("แผล:")
-                    st.image("A015_โลน.jpg")
-                elif insect_name == 'มดคันไฟ':
-                    st.write("แผล:")
-                    st.image("A016_มดคันไฟ.jpg")
-                elif insect_name == 'มดง่าม':
-                    st.write("แผล:")
-                    st.image("A017_มดง่าม.jpg")
-                elif insect_name == 'มดดำ':
-                    st.write("แผล:")
-                    st.image("A018_มดดำ 2.jpg")
-                elif insect_name == 'มดตะนอย':
-                    st.write("แผล:")
-                    st.image("A019_มดตะนอย 2.jpg")
-                elif insect_name == 'แมลงวันบ้าน':
-                    st.write("แผล:")
-                    st.image("A020_แมลงวันบ้าน.jpg")
-                elif insect_name == 'แมลงวันคอกสัตว์':
-                    st.write("แผล:")
-                    st.image("A023_แมลงวันคอกสัตว์.jpg")
-                elif insect_name == 'แมลงวันตา':
-                    st.write("แผล:")
-                    st.image("A024_แมลงวันตา.jpg")
-                elif insect_name == 'ยุงรำคาญ':
-                    st.write("แผล:")
-                    st.image("A028_ยุงรำคาญ (โรคไข้สมองอักเสบ).jpg")
-                elif insect_name == 'ยุงลายบ้าน':
-                    st.write("แผล:")
-                    st.image("A029_ยุงลายบ้าน (ไข้เลือดออก).jpg")
-                elif insect_name == 'ยุงลายสวน':
-                    st.write("แผล:")
-                    st.image("A030_ยุงลายสวน (ชิคุนกุนยา).jpg")
-                elif insect_name == 'ยุงลายเสือ':
-                    st.write("แผล:")
-                    st.image("A031_ยุงลายเสือ (โรคเท้าช้าง).jpg")
-                elif insect_name == 'ริ้นดำ':
-                    st.write("แผล:")
-                    st.image("A032_ริ้นดำ.jpg")
-                elif insect_name == 'ริ้นน้ำเค็ม':
-                    st.write("แผล:")
-                    st.image("A033_ริ้นน้ำเค็ม 2.jpg")
-                elif insect_name == 'ริ้นฝอยทราย':
-                    st.write("แผล:")
-                    st.image("A034_ริ้นฝอยทราย (โรคลิชมาเนีย).jpg")
-                elif insect_name == 'หมัดสุนัข':
-                    st.write("แผล:")
-                    st.image("A035_หมัดสุนัข 2.jpg")
-                elif insect_name == 'เหา':
-                    st.write("แผล:")
-                    st.image("A036_เหา 2.jpg")
-                else:
-                    st.write("แผล: -")
-                st.write(row['อ้างอิง ภาพแผล'])
-                
-                st.write("How to protect:", row['How to protect'])
+                # Display other insect details
+                st.write("**Scientific Name:**", row["insect_sci_name"])
+                st.write("**Type:**", row["type"])
+                st.write("**Characteristics:**", row["characteristics"])
+                st.write("**Found In:**", row["find"])
+                st.write("**Poison:**", row["poision"])
+                st.write("**Symptoms:**", row["symptom"])
+                st.write("**How to Protect:**", row["How to protect"])
                 st.write("---")  # Separator for clarity
-                st.write(row['แหล่งข้อมูล'])
         else:
-            st.write("No results found.")
-        
+            st.write(f"No results found for '{query}'.")
+    else:
+        st.write("Enter an insect name to search.")
+    
+            
 
 if choose == "Contact Us" :
     st.title('Contact Us')
