@@ -215,8 +215,45 @@ if choose == 'Search Bar':
         "ริ้นฝอยทราย": "A034_027.jpg",
         "หมัด": "A035_025.jpg",
         "เหา": "A036_028.jpg",
+        }
+        wound_image_map = {
+        "ด้วงน้ำมัน": "A001_แผล.jpg",
+        "ด้วงก้นกระดก": "A002_แผล.jpg",
+        "แมลงตด": "A003_แผล.jpg",
+        "แมลงบุกบ้าน": "A004_แผล.jpg",
+        "ผึ้งหลวง": "A005_แผล.jpg",
+        "ผึ้งเลี้ยง": "A006_แผล.jpg",
+        "ตัวต่อหัวเสือ": "A007_แผล.jpg",
+        "แตน": "A008_แผล.jpg",
+        "มวนเพชฌฆาต": "A009_แผล.jpg",
+        "เรือด": "A010_แผล.jpg",
+        "หนอนบุ้งร่าน": "A011_แผล.jpg",
+        "แมลงสาบอเมริกัน": "A012_แผล.jpg",
+        "แมลงสาบเยอรมัน": "A013_แผล.jpg",
+        "แมลงสาบผี": "A014_แผล.jpg",
+        "โลน": "A015_แผล.jpg",
+        "มดคันไฟ": "A016_แผล.jpg",
+        "มดง่าม": "A017_แผล.jpg",
+        "มดดำ": "A018_แผล.jpg",
+        "มดตะนอย": "A019_แผล.jpg",
+        "แมลงวันบ้าน": "A020_แผล.jpg",
+        "หมาร่า": "A021_แผล.jpg",
+        "แมลงวันหัวเขียว": "A022_แผล.jpg",
+        "แมลงวันคอกสัตว์": "A023_แผล.jpg",
+        "แมลงวันตา": "A024_แผล.jpg",
+        "แมลงวันหลังลาย": "A025_แผล.jpg",
+        "แมลงวันเซ็ทซี": "A026_แผล.jpg",
+        "ยุงก้นปล่อง": "A027_แผล.jpg",
+        "ยุงรำคาญ": "A028_แผล.jpg",
+        "ยุงลายบ้าน": "A029_แผล.jpg",
+        "ยุงลายสวน": "A030_แผล.jpg",
+        "ยุงลายเสือ": "A031_แผล.jpg",
+        "ริ้นดำ": "A032_แผล.jpg",
+        "ริ้นน้ำเค็ม": "A033_แผล.jpg",
+        "ริ้นฝอยทราย": "A034_แผล.jpg",
+        "หมัด": "A035_แผล.jpg",
+        "เหา": "A036_แผล.jpg",
     }
-    
     # App title
     st.title("Insect Search")
     
@@ -246,6 +283,10 @@ if choose == 'Search Bar':
                 st.write("**Found In:**", row["find"])
                 st.write("**Poison:**", row["poision"])
                 st.write("**Symptoms:**", row["symptom"])
+                if row["insect_name"] in wound_image_map:
+                st.image(wound_image_map[row["insect_name"]], caption="Common wound/lesion caused by contact")
+                else:
+                st.write("No wound image available for this insect.")
                 st.write("**How to Protect:**", row["How to protect"])
                 st.write("---")  # Separator for clarity
         else:
